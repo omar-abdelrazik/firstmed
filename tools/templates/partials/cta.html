@@ -5,7 +5,6 @@
       <h2 id="cta-title">{{ t('Request a quote', 'اطلب عرض سعر') }}</h2>
       <p>{{ t('Send us the product, size and quantity, and we will reply by WhatsApp or email.', 'أرسل لنا المنتج والمقاس والكمية، ونرد عليك عبر واتساب أو البريد الإلكتروني.') }}</p>
       <p class="cta-contacts">
-        <a href="https://wa.me/{{ C.wa }}" target="_blank" rel="noopener">{{ t('WhatsApp', 'واتساب') }} <span class="ltr">{{ C.wa_display }}</span></a>
         <a href="tel:{{ C.sales_phone|replace(' ', '') }}">{{ t('Phone', 'هاتف') }} <span class="ltr">{{ C.sales_phone }}</span></a>
         <a href="mailto:{{ C.sales_email }}">{{ C.sales_email }}</a>
       </p>
