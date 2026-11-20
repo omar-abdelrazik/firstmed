@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% from 'partials/macros.html' import icon, phead with context %}
 {% block title %}{{ t('OEM and private label | First Medical', 'التصنيع بعلامتك التجارية | فيرست ميديكال') }}{% endblock %}
-{% block desc %}{{ t('Adhesive wound dressings made in Egypt under your brand: your pouch, your carton and your pack count, with minimums, documents and dates agreed in writing.', 'لاصقات جروح تُصنع في مصر باسم علامتك التجارية: كيسك وكرتونتك وعدد القطع الذي تريده، مع الاتفاق كتابةً على الحد الأدنى والمستندات والمواعيد.') }}{% endblock %}
+{% block desc %}{{ t('Adhesive wound dressings made in Egypt under your brand: your pouch, your carton and your pack count, with minimums, documents and dates agreed in writing.', 'لاصقات جروح تُصنع في مصر باسم علامتك التجارية: عبوتك وكرتونتك وعدد القطع الذي تريده، مع الاتفاق كتابةً على الحد الأدنى والمستندات والمواعيد.') }}{% endblock %}
 {% block content %}
 
 {{ phead('pack', t('OEM and private label', 'التصنيع بعلامتك التجارية'),
-  t('Right Pro comes in its own printed pouches and cartons. Your product can too.', 'يُطرح رايت برو في أكياس وكراتين مطبوعة خاصة به، ويمكن أن يُطرح منتجك بالطريقة نفسها.'),
+  t('Right Pro comes in its own printed pouches and cartons. Your product can too.', 'يُطرح رايت برو في عبوات وكراتين مطبوعة خاصة به، ويمكن أن يُطرح منتجك بالطريقة نفسها.'),
   packs=[
     {'src': 'img/products/right-pro-10x12.webp', 'style': 'width:46%;inset-inline-end:34%;bottom:14%'},
     {'src': 'img/products/right-pro-6x8.webp', 'style': 'width:24%;inset-inline-end:10%;bottom:12%'},
@@ -15,12 +15,12 @@
 <section class="sec" aria-labelledby="custom-title">
   <div class="wrap split">
     <div class="split-media">
-      {{ img('img/detail/film-eye-pad.webp', t('Printed pouch film for the Right Pro adhesive eye pad', 'فيلم أكياس غطاء العين اللاصق من رايت برو')) }}
+      {{ img('img/detail/film-eye-pad.webp', t('Printed pouch film for the Right Pro adhesive eye pad', 'فيلم عبوات غطاء العين اللاصق من رايت برو')) }}
     </div>
     <div class="split-copy">
       <h2 id="custom-title">{{ t('What you can customise', 'ما يمكن تخصيصه') }}</h2>
       <ul class="checklist">
-        <li>{{ icon('check') }}<span>{{ t('Your brand and artwork on the pouch.', 'علامتك وتصميمك على الكيس.') }}</span></li>
+        <li>{{ icon('check') }}<span>{{ t('Your brand and artwork on the pouch.', 'علامتك وتصميمك على العبوة.') }}</span></li>
         <li>{{ icon('check') }}<span>{{ t('Your carton design, and the languages on it.', 'تصميم الكرتونة، واللغات المكتوبة عليها.') }}</span></li>
         <li>{{ icon('check') }}<span>{{ t('The number of pieces per carton.', 'عدد القطع في الكرتونة.') }}</span></li>
         <li>{{ icon('check') }}<span>{{ t('Sizes within our range, from 6 × 8 to 10 × 35 cm. Ask about others.', 'المقاسات ضمن منتجاتنا من 6 × 8 حتى 10 × 35 سم، واسأل عن غيرها.') }}</span></li>

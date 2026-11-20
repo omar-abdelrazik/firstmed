@@ -64,7 +64,7 @@ SERVICES = [
                       "أسواق الخليج وأوروبا، ضمن خطتنا لعام 2027.")},
             {"id": "oem", "name": ("OEM and private label", "التصنيع بعلامتك التجارية"), "page": "services/oem.html",
              "desc": ("Your brand on our dressings: pouch, carton and pack count.",
-                      "علامتك التجارية على منتجاتنا: الكيس والكرتونة وعدد القطع.")},
+                      "علامتك التجارية على منتجاتنا: العبوة والكرتونة وعدد القطع.")},
         ],
     },
 ]
@@ -99,7 +99,7 @@ PRODUCTS = [
         "spec": [
             (("Material", "الخامة"), ("Non-woven fabric with adhesive; absorbent, non-stick pad", "قماش غير منسوج لاصق، ووسادة ماصّة لا تلتصق بالجرح")),
             (("Labelling", "البيانات"), ("Arabic and English", "بالعربية والإنجليزية")),
-            (("On every pouch", "على كل كيس"), ("Production and expiry dates", "تاريخ الإنتاج وتاريخ الانتهاء")),
+            (("On every pouch", "على كل عبوة"), ("Production and expiry dates", "تاريخ الإنتاج وتاريخ الانتهاء")),
             (("Made in", "بلد الصنع"), ("Tala, Menoufia, Egypt", "تلا، المنوفية، مصر")),
         ],
     },
