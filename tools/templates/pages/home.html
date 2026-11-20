@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% from 'partials/macros.html' import icon, lineup, prod_circle with context %}
 {% block title %}{{ t('First Medical | Medical dressings made in Egypt', 'فيرست ميديكال | مستلزمات طبية مصنوعة في مصر') }}{% endblock %}
-{% block desc %}{{ t('First Medical makes Right Pro adhesive wound dressings in five sizes, adhesive eye pads, absorbent pads, gauze and non-woven rolls in Tala, Menoufia, Egypt.', 'فيرست ميديكال مصنع في تلا بالمنوفية يصنع لاصقات الجروح رايت برو بخمسة مقاسات، وأغطية العين اللاصقة، والوسادات الماصّة، والشاش، ورولات القماش غير المنسوج.') }}{% endblock %}
+{% block desc %}{{ t('First Medical makes Right Pro adhesive dressings in five sizes, adhesive eye patches, dressing pads and non-woven fabric rolls in Tala, Menoufia, Egypt.', 'فيرست ميديكال مصنع في تلا بالمنوفية يصنع الغيار الطبي اللاصق رايت برو بخمسة مقاسات، وغيار العين اللاصق، وغيار الدريسنج، وأتواب النون ووفن.') }}{% endblock %}
 {% block head %}
 <link rel="preload" as="image" href="{{ asset('img/hero/still-life.webp') }}" media="(min-width: 861px)">
 <script type="application/ld+json">{{ org_jsonld }}</script>
@@ -12,14 +12,14 @@
   <div class="hero-grid">
     <div class="hero-media">
       <picture>
-        <source media="(max-width: 860px)" srcset="{{ asset('img/hero/still-life-mobile.webp') }}" width="900" height="739">
+        <source media="(max-width: 599px)" srcset="{{ asset('img/hero/still-life-mobile.webp') }}" width="900" height="739">
         <img src="{{ asset('img/hero/still-life.webp') }}" width="1817" height="866" fetchpriority="high"
-             alt="{{ t('Right Pro dressing cartons with an adhesive dressing and an eye pad', 'كراتين لاصقات رايت برو، ومعها لاصق جروح وغطاء عين') }}">
+             alt="{{ t('Right Pro dressing cartons with an adhesive dressing and an eye patch', 'كراتين غيار رايت برو، ومعها غيار لاصق وغيار عين') }}">
       </picture>
     </div>
     <div class="hero-copy">
       <h1 id="hero-title">{{ t('Making quality<br> accessible.', 'جودة طبية<br> في متناول الجميع.') }}</h1>
-      <p class="hero-lead">{{ t('Adhesive wound dressings, eye pads and non-woven materials, made in Egypt for hospitals, pharmacies and distributors.', 'لاصقات جروح وأغطية عين وخامات غير منسوجة، نصنعها في مصر للمستشفيات والصيدليات والموزعين.') }}</p>
+      <p class="hero-lead">{{ t('Adhesive dressings, dressing pads, eye patches and non-woven fabric, made in Egypt for hospitals, pharmacies and distributors.', 'غيار طبي لاصق ودريسنج، وغيار عين، وأتواب نون ووفن، نصنعها في مصر للمستشفيات والصيدليات والموزعين.') }}</p>
       <div class="actions">
         <a class="btn btn--primary" href="{{ link('contact.html') }}">{{ t('Request a quote', 'اطلب عرض سعر') }}</a>
         <a class="btn btn--ghost" href="{{ link('products.html') }}">{{ t('View products', 'تصفّح المنتجات') }}</a>
@@ -36,8 +36,8 @@
 <section class="sec sec--green" aria-labelledby="rp-home-title">
   <div class="wrap">
     <div class="sec-head">
-      <h2 id="rp-home-title">{{ t('Right Pro adhesive dressings', 'لاصقات جروح رايت برو') }}</h2>
-      <p>{{ t('Non-woven adhesive dressings with an absorbent pad that does not stick to the wound. Five sizes, drawn here to scale.', 'لاصقات من القماش غير المنسوج بوسادة ماصّة لا تلتصق بالجرح، في خمسة مقاسات مرسومة هنا بنسبها الحقيقية.') }}</p>
+      <h2 id="rp-home-title">{{ t('Right Pro adhesive dressings', 'الغيار الطبي اللاصق رايت برو') }}</h2>
+      <p>{{ t('Non-woven adhesive dressings with an absorbent pad that does not stick to the wound. Five sizes, drawn here to scale.', 'غيار لاصق من القماش غير المنسوج بوسادة ماصّة لا تلتصق بالجرح، في خمسة مقاسات مرسومة هنا بنسبها الحقيقية.') }}</p>
     </div>
     {{ lineup() }}
   </div>
@@ -49,8 +49,9 @@
       <h2 id="more-title">{{ t('More from our factory', 'منتجات أخرى من مصنعنا') }}</h2>
       <a class="btn btn--line" href="{{ link('products.html') }}">{{ t('All products', 'كل المنتجات') }}</a>
     </div>
-    <div class="prods">
-      {% for p in PRODUCTS if not p.featured %}{{ prod_circle(p) }}{% endfor %}
+    {% set more = PRODUCTS | rejectattr("featured") | list %}
+    <div class="prods prods--{{ more | length }}">
+      {% for p in more %}{{ prod_circle(p) }}{% endfor %}
     </div>
   </div>
 </section>
@@ -71,12 +72,12 @@
 <section class="sec" aria-labelledby="made-title">
   <div class="wrap split">
     <div class="split-media" style="--pos:62% 50%">
-      {{ img('img/photo/machine-soft.webp', t('A dressing production machine', 'ماكينة إنتاج لاصقات الجروح')) }}
+      {{ img('img/photo/machine-soft.webp', t('A dressing production machine', 'ماكينة إنتاج الغيار الطبي اللاصق')) }}
       {{ img('img/detail/film-right-pro-crop.webp', t('Printed Right Pro pouch film with production and expiry dates', 'فيلم عبوات رايت برو المطبوع عليه تاريخ الإنتاج وتاريخ الانتهاء'), 'inset') }}
     </div>
     <div class="split-copy">
       <h2 id="made-title">{{ t('Made in Tala, Menoufia', 'صُنع في تلا بالمنوفية') }}</h2>
-      <p>{{ t('Right Pro dressings are made and packed in our factory, and every pouch is printed with its production and expiry dates.', 'تُصنع لاصقات رايت برو وتُعبأ في مصنعنا، وعلى كل عبوة تاريخ الإنتاج وتاريخ الانتهاء.') }}</p>
+      <p>{{ t('Right Pro dressings are made and packed in our factory, and every pouch is printed with its production and expiry dates.', 'يُصنع غيار رايت برو ويُعبّأ في مصنعنا، وعلى كل عبوة تاريخ الإنتاج وتاريخ الانتهاء.') }}</p>
       <a class="btn btn--line" href="{{ link('manufacturing.html') }}">{{ t('Our factory', 'مصنعنا') }}</a>
     </div>
   </div>
@@ -88,7 +89,7 @@
     <div class="tiles">
       {% set arts = [
         [('img/products/right-pro-10x12.webp', 'width:72%;inset-inline-start:-2%;bottom:-5%'), ('img/products/eye-pad-oval.webp', 'width:34%;inset-inline-end:2%;bottom:12%')],
-        [('img/products/right-pro-10x25.webp', 'width:94%;inset-inline-start:-4%;bottom:38%'), ('img/products/gauze-swabs.webp', 'width:54%;inset-inline-end:0;bottom:-9%')],
+        [('img/products/right-pro-10x25.webp', 'width:94%;inset-inline-start:-4%;bottom:38%'), ('img/products/pad-rectangular.webp', 'width:50%;inset-inline-end:2%;bottom:2%')],
         [('img/products/right-pro-10x35.webp', 'width:100%;inset-inline-start:-6%;bottom:2%'), ('img/products/right-pro-6x8.webp', 'width:36%;inset-inline-end:4%;bottom:34%')],
       ] %}
       {% set tones = ['mint', 'green', 'forest'] %}

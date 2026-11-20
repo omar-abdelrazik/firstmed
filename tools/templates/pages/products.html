@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% from 'partials/macros.html' import icon, phead, lineup, circle with context %}
 {% block title %}{{ t('Products | First Medical', 'المنتجات | فيرست ميديكال') }}{% endblock %}
-{% block desc %}{{ t('Right Pro adhesive wound dressings in five sizes from 6 × 8 to 10 × 35 cm, adult adhesive eye pads, absorbent pads, gauze swabs and non-woven rolls, made in Egypt.', 'لاصقات جروح رايت برو بخمسة مقاسات من 6 × 8 حتى 10 × 35 سم، وأغطية عين لاصقة للكبار، ووسادات ماصّة، وشاش مطوي، ورولات قماش غير منسوج، صُنعت في مصر.') }}{% endblock %}
+{% block desc %}{{ t('Right Pro adhesive dressings in five sizes from 6 × 8 to 10 × 35 cm, adhesive eye patches, dressing pads in three sizes and 90 cm non-woven fabric rolls, made in Egypt.', 'الغيار الطبي اللاصق رايت برو بخمسة مقاسات من 6 × 8 حتى 10 × 35 سم، وغيار العين اللاصق، وغيار الدريسنج بثلاثة مقاسات، وأتواب النون ووفن بعرض 90 سم، صُنعت في مصر.') }}{% endblock %}
 {% block content %}
 
 {{ phead('pack', t('Products', 'المنتجات'),
-  t('Adhesive wound dressings, eye pads, absorbent pads, gauze and non-woven rolls, made in our factory in Egypt.', 'لاصقات جروح، وأغطية عين، ووسادات ماصّة، وشاش، ورولات قماش غير منسوج، نصنعها في مصنعنا بمصر.'),
+  t('Adhesive dressings, dressing pads, eye patches and non-woven fabric rolls, made in our factory in Egypt.', 'غيار طبي لاصق، وغيار دريسنج، وغيار عين، وأتواب نون ووفن، نصنعها في مصنعنا بمصر.'),
   packs=[
     {'src': 'img/products/right-pro-10x18.webp', 'style': 'width:52%;inset-inline-end:34%;bottom:36%'},
     {'src': 'img/products/right-pro-6x8.webp', 'style': 'width:23%;inset-inline-end:10%;bottom:40%'},
@@ -25,29 +25,23 @@
   <div class="wrap">
     <div class="cat-head">
       <h2 id="wound-title">{{ t('Wound care', 'العناية بالجروح') }}</h2>
-      <p>{{ t('Adhesive dressings, absorbent pads and gauze.', 'لاصقات الجروح والوسادات الماصّة والشاش.') }}</p>
+      <p>{{ tt(CATEGORIES[0].desc) }}</p>
     </div>
 
     <article id="right-pro" aria-labelledby="rp-title">
       {{ lineup(catalog=True) }}
     </article>
 
-    <div class="pair">
+    <div class="cat-more">
       {% for p in PRODUCTS if p.cat == 'wound' and not p.featured %}
-      <article class="item" id="{{ p.id }}" data-product="{{ p.id }}" aria-labelledby="{{ p.id }}-title">
-        <div class="stage-circle">{{ img(p.img, tt(p.name), extra=' data-variant-img') }}</div>
-        <h3 id="{{ p.id }}-title">{{ tt(p.name) }}</h3>
-        <p>{{ tt(p.desc) }}</p>
-        {% if p.variants %}
-        <div class="chips" role="group" aria-label="{{ t('Shape', 'الشكل') }}" data-variants>
-          {% for key, nm, im in p.variants %}
-          {% set wh = dims(im) %}
-          <button type="button" class="chip" aria-pressed="{{ 'true' if loop.first else 'false' }}" data-src="{{ asset(im) }}" data-w="{{ wh[0] }}" data-h="{{ wh[1] }}" data-alt="{{ tt(p.name) }}{{ t(', ', '، ') }}{{ tt(nm) }}">{{ tt(nm) }}</button>
-          {% endfor %}
+      <article class="item item--row" id="{{ p.id }}" aria-labelledby="{{ p.id }}-name">
+        {{ circle(p.img, tt(p.name)) }}
+        <div class="item-body">
+          <h3 id="{{ p.id }}-name">{{ tt(p.name) }}</h3>
+          <p>{{ tt(p.desc) }}</p>
+          <table class="spec"><tbody>{% for k, v in p.spec %}<tr><th scope="row">{{ tt(k) }}</th><td>{{ tt(v) }}</td></tr>{% endfor %}</tbody></table>
+          <a class="btn btn--line" href="{{ link('contact.html') }}?product={{ p.id }}">{{ t('Request a quote', 'اطلب عرض سعر') }}</a>
         </div>
-        {% endif %}
-        <table class="spec"><tbody>{% for k, v in p.spec %}<tr><th scope="row">{{ tt(k) }}</th><td>{{ tt(v) }}</td></tr>{% endfor %}</tbody></table>
-        <a class="btn btn--line" href="{{ link('contact.html') }}?product={{ p.id }}">{{ t('Request a quote', 'اطلب عرض سعر') }}</a>
       </article>
       {% endfor %}
     </div>

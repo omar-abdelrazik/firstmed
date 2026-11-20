@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% from 'partials/macros.html' import icon, phead, circle, ordering, supply with context %}
 {% block title %}{{ t('Hospitals, clinics and pharmacies | First Medical', 'المستشفيات والعيادات والصيدليات | فيرست ميديكال') }}{% endblock %}
-{% block desc %}{{ t('Right Pro adhesive dressings for hospitals, clinics and pharmacies: five sizes from 6 × 8 to 10 × 35 cm, packs of 20 and 75, labelled in Arabic and English.', 'لاصقات رايت برو للمستشفيات والعيادات والصيدليات: خمسة مقاسات من 6 × 8 حتى 10 × 35 سم، وعبوات 20 و75 قطعة، وبيانات بالعربية والإنجليزية.') }}{% endblock %}
+{% block desc %}{{ t('Right Pro adhesive dressings for hospitals, clinics and pharmacies: five sizes from 6 × 8 to 10 × 35 cm, packs of 20 and 75, labelled in Arabic and English.', 'الغيار الطبي اللاصق رايت برو للمستشفيات والعيادات والصيدليات: خمسة مقاسات من 6 × 8 حتى 10 × 35 سم، وعبوات 20 و75 قطعة، وبيانات بالعربية والإنجليزية.') }}{% endblock %}
 {% block content %}
 
 {{ phead('pack', t('Hospitals, clinics and pharmacies', 'المستشفيات والعيادات والصيدليات'),
-  t('Dressings and pads for wards, outpatient care and pharmacy shelves.', 'لاصقات ووسادات للأقسام الداخلية والعيادات الخارجية وأرفف الصيدليات.'),
+  t('Dressings and pads for wards, outpatient care and pharmacy shelves.', 'غيار لاصق ودريسنج للأقسام الداخلية والعيادات الخارجية وأرفف الصيدليات.'),
   packs=[
     {'src': 'img/products/right-pro-10x12.webp', 'style': 'width:50%;inset-inline-end:30%;bottom:16%'},
     {'src': 'img/products/eye-pad-oval.webp', 'style': 'width:20%;inset-inline-end:10%;bottom:12%'},
@@ -18,7 +18,7 @@
       <div class="row-media">{{ circle('img/products/right-pro-10x35.webp', t('Right Pro carton, 10 × 35 cm', 'كرتونة رايت برو، مقاس 10 × 35 سم')) }}</div>
       <div class="row-copy">
         <h2>{{ t('Hospitals', 'المستشفيات') }}</h2>
-        <p>{{ t('Right Pro adhesive dressings for post-operative wounds and everyday ward care, in five sizes from 6 × 8 to 10 × 35 cm, with absorbent pads and gauze alongside. Share your monthly usage and we will quote against it.', 'لاصقات رايت برو لجروح ما بعد العمليات وللعناية اليومية بالجروح في الأقسام، بخمسة مقاسات من 6 × 8 حتى 10 × 35 سم، ومعها الوسادات الماصّة والشاش. شاركنا استهلاكك الشهري، ونقدّم لك عرض السعر على أساسه.') }}</p>
+        <p>{{ t('Right Pro adhesive dressings for post-operative wounds and everyday ward care, in five sizes from 6 × 8 to 10 × 35 cm, with dressing pads in three sizes alongside. Share your monthly usage and we will quote against it.', 'غيار رايت برو اللاصق لجروح ما بعد العمليات وللعناية اليومية بالجروح في الأقسام، بخمسة مقاسات من 6 × 8 حتى 10 × 35 سم، ومعه غيار الدريسنج بثلاثة مقاسات. شاركنا استهلاكك الشهري، ونقدّم لك عرض السعر على أساسه.') }}</p>
       </div>
     </div>
     <div class="row" id="clinics">
@@ -41,7 +41,7 @@
 <section class="sec sec--mist" aria-labelledby="supply-title">
   <div class="wrap">
     <div class="sec-head"><h2 id="supply-title">{{ t('What we supply', 'ما نورّده') }}</h2></div>
-    {{ supply(['right-pro', 'pads', 'gauze', 'eye-pad']) }}
+    {{ supply(['right-pro', 'pads', 'eye-pad']) }}
   </div>
 </section>
 

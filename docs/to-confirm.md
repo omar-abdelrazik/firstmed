@@ -8,7 +8,8 @@ The site only states what's known. These items are written carefully or left out
 - [ ] When www.1st-medical.com points at the site, change `SITE_URL` in `tools/site_data.py` and rebuild, so link previews and canonical links use the new domain.
 - [ ] Right Pro is presented as First Medical's own product line.
 - [ ] Right Pro sizes and packs: 6 × 8 (75 pcs), 10 × 12, 10 × 18, 10 × 25, 10 × 35 (20 pcs). These come from the cartons.
-- [ ] Absorbent pads (square, large square, rectangular), gauze swabs and non-woven rolls are listed with "sizes on request". Are they all available today?
+- [x] Product range confirmed by Omar (Nov 2026): Right Pro adhesive dressing (5 sizes), dressing pads (10 × 10 cm / 25, 10 × 20 cm / 15, 15 × 25 cm / 10 per pack), eye patch (40 per box, 45 boxes = 1,800 per carton), non-woven rolls 90 cm × 30 m. Gauze swabs removed.
+- [ ] Which dressing-pad photo shows which size? Until then the products page shows one photo and a size table.
 - [ ] The adhesive eye pad is listed as adult size only.
 - [ ] Factory visits are offered to buyers evaluating us as a supplier.
 - [ ] 2027 target for first exports to the Gulf and Europe.

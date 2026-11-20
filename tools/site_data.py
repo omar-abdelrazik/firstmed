@@ -26,7 +26,7 @@ SERVICES = [
         "items": [
             {"id": "hospitals", "name": ("Hospitals", "المستشفيات"),
              "desc": ("Adhesive dressings for post-operative and ward care, from 6 × 8 to 10 × 35 cm.",
-                      "لاصقات جروح لما بعد العمليات وللأقسام الداخلية، من 6 × 8 حتى 10 × 35 سم.")},
+                      "غيار لاصق لجروح ما بعد العمليات وللأقسام الداخلية، من 6 × 8 حتى 10 × 35 سم.")},
             {"id": "clinics", "name": ("Clinics", "العيادات"),
              "desc": ("Packs of 20 and 75 that suit outpatient and primary care.",
                       "عبوات 20 و75 قطعة تناسب العيادات الخارجية والرعاية الأولية.")},
@@ -72,11 +72,11 @@ SERVICES = [
 # ---------------------------------------------------------------- products
 CATEGORIES = [
     {"id": "wound", "name": ("Wound care", "العناية بالجروح"),
-     "desc": ("Adhesive dressings, absorbent pads and gauze.", "لاصقات الجروح والوسادات الماصّة والشاش.")},
+     "desc": ("Adhesive dressings and non-adhesive dressing pads.", "الغيار الطبي اللاصق وغيار الدريسنج.")},
     {"id": "eye", "name": ("Eye care", "العناية بالعين"),
-     "desc": ("Adhesive eye pads.", "أغطية العين اللاصقة.")},
+     "desc": ("Adhesive eye patches.", "غيار العين اللاصق.")},
     {"id": "nonwoven", "name": ("Non-woven materials", "الخامات غير المنسوجة"),
-     "desc": ("Non-woven fabric on rolls.", "قماش غير منسوج على رولات.")},
+     "desc": ("Non-woven fabric on rolls.", "قماش نون ووفن على أتواب.")},
 ]
 
 RIGHT_PRO_SIZES = [
@@ -91,10 +91,10 @@ RIGHT_PRO_SIZES = [
 PRODUCTS = [
     {
         "id": "right-pro", "cat": "wound", "featured": True,
-        "name": ("Right Pro adhesive dressing", "لاصق جروح رايت برو"),
+        "name": ("Right Pro adhesive dressing", "غيار طبي لاصق رايت برو"),
         "short": ("Five sizes, packs of 20 and 75", "خمسة مقاسات، عبوات 20 و75 قطعة"),
         "desc": ("Non-woven fabric adhesive wound dressing with an absorbent pad that does not stick to the wound.",
-                 "لاصق جروح من القماش غير المنسوج، بوسادة ماصّة لا تلتصق بالجرح."),
+                 "غيار لاصق من القماش غير المنسوج، بوسادة ماصّة لا تلتصق بالجرح."),
         "img": "img/products/right-pro-10x18.webp",
         "spec": [
             (("Material", "الخامة"), ("Non-woven fabric with adhesive; absorbent, non-stick pad", "قماش غير منسوج لاصق، ووسادة ماصّة لا تلتصق بالجرح")),
@@ -105,55 +105,42 @@ PRODUCTS = [
     },
     {
         "id": "pads", "cat": "wound",
-        "name": ("Absorbent pads", "وسادات ماصّة"),
-        "short": ("Non-adhesive, in three shapes", "غير لاصقة، بثلاثة أشكال"),
-        "desc": ("Soft, non-adhesive absorbent pads for wound care, held in place with gauze or a bandage.",
-                 "وسادات ماصّة ناعمة غير لاصقة للعناية بالجروح، تُثبَّت بالشاش أو الرباط."),
+        "name": ("Dressing pads", "غيار طبي دريسنج"),
+        "short": ("Three sizes, 10 to 25 per pack", "ثلاثة مقاسات، من 10 إلى 25 قطعة في العبوة"),
+        "desc": ("Soft, non-adhesive absorbent dressing for wound care, held in place with a bandage or tape.",
+                 "غيار ماصّ ناعم غير لاصق للعناية بالجروح، يُثبَّت بالرباط أو البلاستر."),
         "img": "img/products/pad-square.webp",
-        "variants": [
-            ("square", ("Square", "مربعة"), "img/products/pad-square.webp"),
-            ("large", ("Large square", "مربعة كبيرة"), "img/products/pad-square-large.webp"),
-            ("rect", ("Rectangular", "مستطيلة"), "img/products/pad-rectangular.webp"),
-        ],
         "spec": [
-            (("Type", "النوع"), ("Non-adhesive absorbent pad", "وسادة ماصّة غير لاصقة")),
-            (("Sizes", "المقاسات"), ("On request", "حسب الطلب")),
-        ],
-    },
-    {
-        "id": "gauze", "cat": "wound",
-        "name": ("Gauze swabs", "شاش طبي مطوي"),
-        "short": ("Folded cotton gauze", "شاش قطني مطوي"),
-        "desc": ("Folded cotton gauze swabs for cleaning, covering and absorbing.",
-                 "شاش قطني مطوي للتنظيف والتغطية والامتصاص."),
-        "img": "img/products/gauze-swabs.webp",
-        "spec": [
-            (("Material", "الخامة"), ("Cotton gauze", "شاش قطني")),
-            (("Sizes and ply", "المقاسات وعدد الطبقات"), ("On request", "حسب الطلب")),
+            (("10 × 10 cm", "10 × 10 سم"), ("25 pieces per pack", "25 قطعة في العبوة")),
+            (("10 × 20 cm", "10 × 20 سم"), ("15 pieces per pack", "15 قطعة في العبوة")),
+            (("15 × 25 cm", "15 × 25 سم"), ("10 pieces per pack", "10 قطع في العبوة")),
         ],
     },
     {
         "id": "eye-pad", "cat": "eye",
-        "name": ("Adhesive eye pad", "غطاء عين لاصق"),
-        "short": ("Oval, adult size", "بيضاوي، مقاس الكبار"),
-        "desc": ("Oval adhesive eye pad with a soft absorbent centre, part of the Right Pro range.",
-                 "غطاء عين بيضاوي لاصق بوسادة ماصّة ناعمة في المنتصف، ضمن منتجات رايت برو."),
+        "name": ("Adhesive eye patch", "غيار عين لاصق"),
+        "short": ("Box of 40, carton of 45 boxes", "علبة 40 قطعة، وكرتونة 45 علبة"),
+        "desc": ("Oval adhesive eye patch with a soft absorbent centre, part of the Right Pro range.",
+                 "غيار عين بيضاوي لاصق بوسادة ماصّة ناعمة في المنتصف، ضمن منتجات رايت برو."),
         "img": "img/products/eye-pad-oval.webp",
         "spec": [
             (("Shape", "الشكل"), ("Oval", "بيضاوي")),
             (("Size", "المقاس"), ("Adult", "للكبار")),
+            (("Pieces per box", "عدد القطع في العلبة"), ("40", "40 قطعة")),
+            (("Boxes per carton", "عدد العلب في الكرتونة"), ("45 boxes, 1,800 pieces in total", "45 علبة، بإجمالي 1800 قطعة")),
             (("Labelling", "البيانات"), ("Arabic and English", "بالعربية والإنجليزية")),
         ],
     },
     {
         "id": "nonwoven-rolls", "cat": "nonwoven",
-        "name": ("Non-woven fabric rolls", "رولات قماش غير منسوج"),
-        "short": ("For medical use", "للاستخدام الطبي"),
+        "name": ("Non-woven fabric rolls", "أتواب نون ووفن"),
+        "short": ("90 cm wide, 30 m per roll", "عرض 90 سم، وطول التوب 30 مترًا"),
         "desc": ("Non-woven fabric on rolls for medical use.",
-                 "قماش غير منسوج على رولات للاستخدام الطبي."),
+                 "قماش نون ووفن على أتواب للاستخدام الطبي."),
         "img": "img/products/nonwoven-roll.webp",
         "spec": [
-            (("Colours, widths and weights", "الألوان والعروض والأوزان"), ("On request", "حسب الطلب")),
+            (("Width", "العرض"), ("90 cm", "90 سم")),
+            (("Length per roll", "طول التوب"), ("30 m", "30 مترًا")),
         ],
     },
 ]

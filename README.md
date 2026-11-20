@@ -27,6 +27,17 @@ python3 tools/build.py
 
 Commit the generated pages together with the template change.
 
+## Check every screen size
+
+After a layout change, serve the site and run the audit. It loads all 22 pages at phone, landscape-phone, tablet, laptop and monitor sizes (280 to 2560 px wide) and reports overflow, clipped or colliding text, tap targets under 24 px, small type, stretched or blurry images, headlines below the first screen, and whether the menus fit.
+
+```
+python3 -m http.server 8765 --bind 127.0.0.1 &
+python3 tools/responsive_audit.py            # add --quick for 8 sizes only
+```
+
+Layout ranges in `assets/css/site.css`: phones up to 599 px, tablets 600 to 1100 px (the menu button shows up to 1100 px), phones held sideways are caught by `(orientation: landscape) and (max-height: 500px)`, and monitors from 1800 px get a wider page and slightly larger type.
+
 ## Publish
 
 The live site is deployed from `main` (Vercel). Pushing to `main` updates it.

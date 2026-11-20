@@ -8,7 +8,7 @@
   t('A local manufacturer for public healthcare: a shorter supply line, and a factory you can visit.', 'مصنع محلي للرعاية الصحية العامة: سلسلة توريد أقصر، ومصنع يمكنك زيارته.'),
   packs=[
     {'src': 'img/products/right-pro-10x25.webp', 'style': 'width:70%;inset-inline-end:16%;bottom:42%'},
-    {'src': 'img/products/gauze-swabs.webp', 'style': 'width:36%;inset-inline-end:46%;bottom:6%'},
+    {'src': 'img/products/pad-rectangular.webp', 'style': 'width:38%;inset-inline-end:46%;bottom:8%'},
     {'src': 'img/products/pad-square-large.webp', 'style': 'width:32%;inset-inline-end:10%;bottom:8%'},
   ],
   crumbs=[(t('Our services', 'خدماتنا'), link('services/index.html')), (t('For government', 'للجهات الحكومية'), None)]) }}
@@ -23,14 +23,14 @@
       </div>
     </div>
     <div class="row" id="ngos">
-      <div class="row-media">{{ circle('img/products/pad-square-large.webp', t('Absorbent pad', 'وسادة ماصّة')) }}</div>
+      <div class="row-media">{{ circle('img/products/eye-pad-oval.webp', t('Adhesive eye patch', 'غيار عين لاصق')) }}</div>
       <div class="row-copy">
         <h2>{{ t('NGOs', 'المنظمات الأهلية') }}</h2>
         <p>{{ t('Fair pricing for humanitarian and community health programmes, with supply planned around your distribution schedule.', 'أسعار عادلة لبرامج الإغاثة والصحة المجتمعية، وتوريد نخطط له حسب جدول التوزيع لديكم.') }}</p>
       </div>
     </div>
     <div class="row" id="emergency">
-      <div class="row-media">{{ circle('img/products/gauze-swabs.webp', t('Gauze swabs', 'شاش طبي مطوي')) }}</div>
+      <div class="row-media">{{ circle('img/products/pad-rectangular.webp', t('Dressing pad', 'غيار طبي دريسنج')) }}</div>
       <div class="row-copy">
         <h2>{{ t('Emergency response', 'الاستجابة للطوارئ') }}</h2>
         <p>{{ t('When time matters, you get a clear answer: what is in stock, in what quantity, and how soon it can be delivered.', 'حين يكون الوقت حاسمًا تحصل على إجابة واضحة: المتوفر في المخزن، وكميته، وأقرب موعد للتسليم.') }}</p>
@@ -42,7 +42,7 @@
 <section class="sec sec--mist" aria-labelledby="supply-title">
   <div class="wrap">
     <div class="sec-head"><h2 id="supply-title">{{ t('What we supply', 'ما نورّده') }}</h2></div>
-    {{ supply(['right-pro', 'pads', 'gauze', 'eye-pad', 'nonwoven-rolls']) }}
+    {{ supply(['right-pro', 'pads', 'eye-pad', 'nonwoven-rolls']) }}
   </div>
 </section>
 

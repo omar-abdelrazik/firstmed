@@ -122,7 +122,7 @@
 {%- endmacro %}
 
 {% macro supply(ids) -%}
-<div class="prods">
+<div class="prods prods--{{ ids | length }}">
   {% for p in PRODUCTS if p.id in ids %}{{ prod_circle(p) }}{% endfor %}
 </div>
 {%- endmacro %}
