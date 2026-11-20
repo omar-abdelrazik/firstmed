@@ -96,7 +96,7 @@
       var opt = form.elements.product.querySelector('option[value="' + prod + '"]');
       if (opt) form.elements.product.value = prod;
     }
-    if (size && form.elements.size) form.elements.size.value = size.replace("x", " × ") + " cm";
+    if (size && form.elements.size) form.elements.size.value = size.replace("x", " × ") + " " + (form.getAttribute("data-unit") || "cm");
 
     var msg = form.querySelector("[data-form-msg]");
     function compose() {

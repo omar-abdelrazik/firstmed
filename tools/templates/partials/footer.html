@@ -2,8 +2,8 @@
   <div class="wrap">
     <div class="footer-top">
       <div class="footer-brand">
-        <img src="{{ asset('img/brand/logo-dark.png') }}" width="720" height="356" alt="1st MED" loading="lazy">
-        <p>{{ t('Medical consumables, made in Tala, Menoufia, Egypt.', 'مستلزمات طبية، تُصنع في تلا بمحافظة المنوفية، مصر.') }}</p>
+        <img src="{{ asset('img/brand/logo-dark.png') }}" width="720" height="356" alt="{{ t('1st MED', 'فيرست ميديكال') }}" loading="lazy">
+        <p>{{ t('Medical consumables made in Tala, Menoufia, Egypt.', 'مستلزمات طبية تُصنع في تلا بمحافظة المنوفية، مصر.') }}</p>
       </div>
       <div>
         <h2>{{ t('Products', 'المنتجات') }}</h2>
@@ -23,7 +23,7 @@
         <ul>
           <li><a href="{{ link('about.html') }}">{{ t('About us', 'من نحن') }}</a></li>
           <li><a href="{{ link('manufacturing.html') }}">{{ t('Manufacturing', 'التصنيع') }}</a></li>
-          <li><a href="{{ link('faq.html') }}">{{ t('FAQ', 'أسئلة شائعة') }}</a></li>
+          <li><a href="{{ link('faq.html') }}">{{ t('FAQ', 'الأسئلة الشائعة') }}</a></li>
           <li><a href="{{ link('contact.html') }}">{{ t('Request a quote', 'اطلب عرض سعر') }}</a></li>
         </ul>
       </div>
@@ -37,7 +37,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© <span data-year>2026</span> First Medical. {{ t('Every claim on this site is one we can back up.', 'كل ما نقوله في هذا الموقع نستطيع إثباته.') }}</span>
+      <span>© <span data-year>2026</span> {{ t('First Medical', 'فيرست ميديكال') }}</span>
       <a href="{{ alt_link }}" hreflang="{{ other }}" lang="{{ other }}">{{ 'English' if lang == 'ar' else 'العربية' }}</a>
     </div>
   </div>

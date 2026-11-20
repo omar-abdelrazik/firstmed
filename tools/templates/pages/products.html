@@ -1,104 +1,74 @@
 {% extends 'base.html' %}
-{% from 'partials/macros.html' import icon, closing with context %}
+{% from 'partials/macros.html' import icon, phead, lineup, circle with context %}
 {% block title %}{{ t('Products | First Medical', 'المنتجات | فيرست ميديكال') }}{% endblock %}
-{% block desc %}{{ t('Right Pro adhesive wound dressings in five sizes (6 × 8 to 10 × 35 cm), adult adhesive eye pads, absorbent pads, gauze swabs and non-woven rolls, made in Egypt.', 'لاصقات جروح رايت برو بخمسة مقاسات (من 6 × 8 حتى 10 × 35 سم)، وأغطية عين لاصقة للكبار، ووسادات ماصّة، وشاش مطوي، ورولات قماش غير منسوج، صُنعت في مصر.') }}{% endblock %}
+{% block desc %}{{ t('Right Pro adhesive wound dressings in five sizes from 6 × 8 to 10 × 35 cm, adult adhesive eye pads, absorbent pads, gauze swabs and non-woven rolls, made in Egypt.', 'لاصقات جروح رايت برو بخمسة مقاسات من 6 × 8 حتى 10 × 35 سم، وأغطية عين لاصقة للكبار، ووسادات ماصّة، وشاش مطوي، ورولات قماش غير منسوج، صُنعت في مصر.') }}{% endblock %}
 {% block content %}
 
-<section class="page-hero">
-  <div class="wrap">
-    <h1 class="h-page">{{ t('Products', 'المنتجات') }}</h1>
-    <p class="lead">{{ t("Each product is listed with what we know for certain: size, pack and material. For anything else, such as spec sheets, documents or samples, ask us. We'll send the actual documents, not a brochure.", 'نعرض كل منتج هنا بما نعرفه عنه يقينًا: المقاس والعبوة والخامة. ولأي تفاصيل أخرى، مثل المواصفات الفنية أو المستندات أو العينات، اسألنا، وسنرسل لك المستندات الفعلية، لا كتيّبًا دعائيًا.') }}</p>
-  </div>
-</section>
+{{ phead('pack', t('Products', 'المنتجات'),
+  t('Adhesive wound dressings, eye pads, absorbent pads, gauze and non-woven rolls, made in our factory in Egypt.', 'لاصقات جروح، وأغطية عين، ووسادات ماصّة، وشاش، ورولات قماش غير منسوج، نصنعها في مصنعنا بمصر.'),
+  packs=[
+    {'src': 'img/products/right-pro-10x18.webp', 'style': 'width:52%;inset-inline-end:34%;bottom:36%'},
+    {'src': 'img/products/right-pro-6x8.webp', 'style': 'width:23%;inset-inline-end:10%;bottom:40%'},
+    {'src': 'img/products/right-pro-10x35.webp', 'style': 'width:78%;inset-inline-end:8%;bottom:9%'},
+  ]) }}
 
 <nav class="subnav" aria-label="{{ t('Product categories', 'فئات المنتجات') }}">
   <div class="wrap">
     <ul>
       {% for c in CATEGORIES %}<li><a href="#{{ c.id }}">{{ tt(c.name) }}</a></li>{% endfor %}
-      <li><a href="#documents">{{ t('Documents and certificates', 'المستندات والشهادات') }}</a></li>
+      <li><a href="#documents">{{ t('Product documents', 'مستندات المنتجات') }}</a></li>
     </ul>
   </div>
 </nav>
 
-{# ------------------------------------------------ wound care #}
 <section class="cat" id="wound" aria-labelledby="wound-title">
   <div class="wrap">
     <div class="cat-head">
-      <h2 class="h-section" id="wound-title">{{ t('Wound care', 'العناية بالجروح') }}</h2>
+      <h2 id="wound-title">{{ t('Wound care', 'العناية بالجروح') }}</h2>
       <p>{{ t('Adhesive dressings, absorbent pads and gauze.', 'لاصقات الجروح والوسادات الماصّة والشاش.') }}</p>
     </div>
 
-    {% set rp = PRODUCTS[0] %}
-    <article class="feature" id="right-pro" data-product="right-pro" aria-labelledby="rp-title">
-      <div class="stage">
-        {{ img('img/products/right-pro-10x18.webp', t('Right Pro adhesive dressing carton, 10 × 18 cm, 20 pieces', 'كرتونة لاصق رايت برو، مقاس 10 × 18 سم، 20 قطعة'), lazy=False, extra=' data-variant-img') }}
-      </div>
-      <div class="feature-body">
-        <h3 id="rp-title">{{ tt(rp.name) }}</h3>
-        <p>{{ tt(rp.desc) }}</p>
-        <div class="choice">
-          <span class="choice-label" id="rp-size-label">{{ t('Choose a size', 'اختر المقاس') }}</span>
-          <div class="chips" role="group" aria-labelledby="rp-size-label" data-variants>
-            {% for key, label, pcs, im in SIZES %}
-            {% set wh = dims(im) %}
-            <button type="button" class="chip" aria-pressed="{{ 'true' if key == '10x18' else 'false' }}"
-                    data-key="{{ key }}" data-src="{{ asset(im) }}" data-w="{{ wh[0] }}" data-h="{{ wh[1] }}" data-size="{{ label if lang == 'en' else label|replace('cm', 'سم') }}"
-                    data-pack="{{ t(pcs ~ ' pieces per carton', pcs ~ ' قطعة في الكرتونة') }}"
-                    data-alt="{{ t('Right Pro adhesive dressing carton, ' ~ label ~ ', ' ~ pcs ~ ' pieces', 'كرتونة لاصق رايت برو، مقاس ' ~ label|replace('cm', 'سم') ~ '، ' ~ pcs ~ ' قطعة') }}"><span class="ltr">{{ label if lang == 'en' else label|replace('cm', 'سم') }}</span></button>
-            {% endfor %}
-          </div>
-        </div>
-        <table class="spec">
-          <tbody>
-            <tr><th scope="row">{{ t('Size', 'المقاس') }}</th><td><span class="ltr" data-bind="size">{{ t('10 × 18 cm', '10 × 18 سم') }}</span></td></tr>
-            <tr><th scope="row">{{ t('Pack', 'العبوة') }}</th><td data-bind="pack">{{ t('20 pieces per carton', '20 قطعة في الكرتونة') }}</td></tr>
-            {% for k, v in rp.spec %}<tr><th scope="row">{{ tt(k) }}</th><td>{{ tt(v) }}</td></tr>{% endfor %}
-          </tbody>
-        </table>
-        <div class="actions">
-          <a class="btn btn--primary" data-quote-link href="{{ link('contact.html') }}?product=right-pro&amp;size=10x18">{{ t('Ask for a quote', 'اطلب عرض سعر') }}</a>
-        </div>
-      </div>
+    <article id="right-pro" aria-labelledby="rp-title">
+      {{ lineup(catalog=True) }}
     </article>
 
-    <div class="cards" style="margin-block-start:clamp(56px,7vw,88px)">
+    <div class="pair">
       {% for p in PRODUCTS if p.cat == 'wound' and not p.featured %}
-      <article class="card" id="{{ p.id }}" data-product="{{ p.id }}" aria-labelledby="{{ p.id }}-title">
-        <div class="stage">{{ img(p.img, tt(p.name), extra=' data-variant-img') }}</div>
+      <article class="item" id="{{ p.id }}" data-product="{{ p.id }}" aria-labelledby="{{ p.id }}-title">
+        <div class="stage-circle">{{ img(p.img, tt(p.name), extra=' data-variant-img') }}</div>
         <h3 id="{{ p.id }}-title">{{ tt(p.name) }}</h3>
         <p>{{ tt(p.desc) }}</p>
         {% if p.variants %}
         <div class="chips" role="group" aria-label="{{ t('Shape', 'الشكل') }}" data-variants>
           {% for key, nm, im in p.variants %}
           {% set wh = dims(im) %}
-          <button type="button" class="chip" aria-pressed="{{ 'true' if loop.first else 'false' }}" data-src="{{ asset(im) }}" data-w="{{ wh[0] }}" data-h="{{ wh[1] }}" data-alt="{{ tt(p.name) }}, {{ tt(nm) }}">{{ tt(nm) }}</button>
+          <button type="button" class="chip" aria-pressed="{{ 'true' if loop.first else 'false' }}" data-src="{{ asset(im) }}" data-w="{{ wh[0] }}" data-h="{{ wh[1] }}" data-alt="{{ tt(p.name) }}{{ t(', ', '، ') }}{{ tt(nm) }}">{{ tt(nm) }}</button>
           {% endfor %}
         </div>
         {% endif %}
         <table class="spec"><tbody>{% for k, v in p.spec %}<tr><th scope="row">{{ tt(k) }}</th><td>{{ tt(v) }}</td></tr>{% endfor %}</tbody></table>
-        <a class="btn btn--line" href="{{ link('contact.html') }}?product={{ p.id }}">{{ t('Ask about this product', 'استفسر عن هذا المنتج') }}</a>
+        <a class="btn btn--line" href="{{ link('contact.html') }}?product={{ p.id }}">{{ t('Request a quote', 'اطلب عرض سعر') }}</a>
       </article>
       {% endfor %}
     </div>
   </div>
 </section>
 
-{# ------------------------------------------------ eye care + non-woven #}
 {% for cat in CATEGORIES if cat.id != 'wound' %}
 <section class="cat" id="{{ cat.id }}" aria-labelledby="{{ cat.id }}-title">
   <div class="wrap">
     <div class="cat-head">
-      <h2 class="h-section" id="{{ cat.id }}-title">{{ tt(cat.name) }}</h2>
+      <h2 id="{{ cat.id }}-title">{{ tt(cat.name) }}</h2>
       <p>{{ tt(cat.desc) }}</p>
     </div>
     {% for p in PRODUCTS if p.cat == cat.id %}
-    <article class="feature feature--compact" id="{{ p.id }}" aria-labelledby="{{ p.id }}-title">
-      <div class="stage">{{ img(p.img, tt(p.name)) }}</div>
-      <div class="feature-body">
-        <h3 id="{{ p.id }}-title">{{ tt(p.name) }}</h3>
+    <article class="item item--row" id="{{ p.id }}" aria-labelledby="{{ p.id }}-name">
+      {{ circle(p.img, tt(p.name)) }}
+      <div class="item-body">
+        <h3 id="{{ p.id }}-name">{{ tt(p.name) }}</h3>
         <p>{{ tt(p.desc) }}</p>
         <table class="spec"><tbody>{% for k, v in p.spec %}<tr><th scope="row">{{ tt(k) }}</th><td>{{ tt(v) }}</td></tr>{% endfor %}</tbody></table>
-        <div class="actions"><a class="btn btn--line" href="{{ link('contact.html') }}?product={{ p.id }}">{{ t('Ask about this product', 'استفسر عن هذا المنتج') }}</a></div>
+        <a class="btn btn--line" href="{{ link('contact.html') }}?product={{ p.id }}">{{ t('Request a quote', 'اطلب عرض سعر') }}</a>
       </div>
     </article>
     {% endfor %}
@@ -106,16 +76,15 @@
 </section>
 {% endfor %}
 
-<section class="section" id="documents" aria-labelledby="docs-title">
-  <div class="wrap split">
-    <h2 class="h-section" id="docs-title">{{ t('Documents and certificates', 'المستندات والشهادات') }}</h2>
-    <div class="prose">
-      <p>{{ t("You won't find a row of certificate badges on this site. Requirements differ by product and by market, so we answer with documents, not logos.", 'لن تجد في هذا الموقع صفًّا من شعارات الشهادات. فالمتطلبات تختلف من منتج إلى آخر ومن سوق إلى آخر، ولهذا نجيب بالمستندات، لا بالشعارات.') }}</p>
-      <p>{{ t("Tell us the product and the market. We'll send what exists for it, such as specifications, test results and registration status, and we'll tell you plainly if something isn't in place yet.", 'أخبرنا بالمنتج والسوق، وسنرسل لك ما هو متاح له فعلًا، مثل المواصفات ونتائج الاختبارات وحالة التسجيل، ونخبرك بوضوح إن كان هناك ما لم يكتمل بعد.') }}</p>
-      <p><a class="text-link" href="{{ link('contact.html') }}">{{ t('Ask for documents', 'اطلب المستندات') }}</a></p>
+<section class="cat" id="documents" aria-labelledby="docs-title">
+  <div class="wrap">
+    <div class="panel">
+      <div>
+        <h2 id="docs-title">{{ t('Product documents', 'مستندات المنتجات') }}</h2>
+        <p>{{ t('For tenders, registrations and distributor files, tell us the product and the market and we will send the documents available for it.', 'للمناقصات والتسجيل وملفات الموزعين، أخبرنا بالمنتج والسوق، وسنرسل لك المستندات المتاحة له.') }}</p>
+      </div>
+      <a class="btn btn--primary" href="{{ link('contact.html') }}">{{ t('Request documents', 'اطلب المستندات') }}</a>
     </div>
   </div>
 </section>
-
-{{ closing('Need a size or pack we don’t list?', 'تحتاج مقاسًا أو عبوة غير موجودة هنا؟', "Ask. If we can make it, we'll quote it. If we can't, we'll say so.", 'اسأل. إن استطعنا تصنيعه قدّمنا لك عرض سعر، وإن لم نستطع أخبرناك بذلك.') }}
 {% endblock %}

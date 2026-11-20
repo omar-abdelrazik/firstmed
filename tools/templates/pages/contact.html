@@ -1,20 +1,17 @@
 {% extends 'base.html' %}
-{% from 'partials/macros.html' import icon with context %}
+{% from 'partials/macros.html' import icon, phead with context %}
 {% block title %}{{ t('Request a quote | First Medical', 'اطلب عرض سعر | فيرست ميديكال') }}{% endblock %}
-{% block desc %}{{ t('Request a quote from First Medical by WhatsApp or email. Sales and export contacts, and our factory location in Tala, Menoufia, Egypt.', 'اطلب عرض سعر من فيرست ميديكال عبر واتساب أو البريد الإلكتروني. أرقام المبيعات والتصدير، وموقع المصنع في تلا بالمنوفية.') }}{% endblock %}
+{% block desc %}{{ t('Request a quote from First Medical by WhatsApp or email. Sales and export contacts, and our factory in Tala, Menoufia, Egypt.', 'اطلب عرض سعر من فيرست ميديكال عبر واتساب أو البريد الإلكتروني. أرقام المبيعات والتصدير، وموقع المصنع في تلا بالمنوفية.') }}{% endblock %}
+{% block cta %}{% endblock %}
 {% block content %}
 
-<section class="page-hero">
-  <div class="wrap">
-    <h1 class="h-page">{{ t('Request a quote', 'اطلب عرض سعر') }}</h1>
-    <p class="lead">{{ t('Fill this in, then send it on WhatsApp or by email. Your app opens with the message already written, and nothing is stored on this website.', 'املأ البيانات ثم أرسلها عبر واتساب أو البريد الإلكتروني. سيفتح التطبيق ورسالتك مكتوبة، ولا يُحفظ أي شيء على هذا الموقع.') }}</p>
-  </div>
-</section>
+{{ phead('plain', t('Request a quote', 'اطلب عرض سعر'),
+  t('Fill in what you need and send it by WhatsApp or email. The message is written for you.', 'املأ تفاصيل طلبك وأرسلها عبر واتساب أو البريد الإلكتروني، وستُكتب الرسالة تلقائيًا.')) }}
 
-<section class="section">
+<section class="sec">
   <div class="wrap contact-grid">
     <form class="form" data-quote-form novalidate
-          data-wa="{{ C.sales_wa }}" data-email="{{ C.sales_email }}"
+          data-wa="{{ C.sales_wa }}" data-email="{{ C.sales_email }}" data-unit="{{ t('cm', 'سم') }}"
           data-heading="{{ t('Quote request for First Medical', 'طلب عرض سعر من فيرست ميديكال') }}"
           data-err-name="{{ t('Please add your name.', 'من فضلك اكتب اسمك.') }}"
           data-err-need="{{ t('Choose a product, or tell us in the notes what you need.', 'اختر منتجًا، أو اكتب في الملاحظات ما تحتاجه.') }}">
@@ -35,7 +32,7 @@
             <option value="">{{ t('Choose one', 'اختر') }}</option>
             <option>{{ t('A hospital or clinic', 'مستشفى أو عيادة') }}</option>
             <option>{{ t('A pharmacy', 'صيدلية') }}</option>
-            <option>{{ t('Distribution', 'التوزيع') }}</option>
+            <option>{{ t('Distribution', 'شركة توزيع') }}</option>
             <option>{{ t('A government body or tender', 'جهة حكومية أو مناقصة') }}</option>
             <option>{{ t('An NGO or programme', 'منظمة أهلية أو برنامج') }}</option>
             <option>{{ t('Our own brand (private label)', 'علامتنا التجارية الخاصة') }}</option>
@@ -91,7 +88,7 @@
       <div>
         <h2>{{ t('Factory', 'المصنع') }}</h2>
         <span>{{ t('Tala, Menoufia, Egypt', 'تلا، المنوفية، مصر') }}</span>
-        <a href="{{ C.maps }}" target="_blank" rel="noopener">{{ t('Open in Google Maps', 'افتح الموقع في خرائط Google') }}</a>
+        <a href="{{ C.maps }}" target="_blank" rel="noopener">{{ t('Open in Google Maps', 'افتح في خرائط جوجل') }}</a>
       </div>
     </aside>
   </div>

@@ -9,6 +9,7 @@ Both languages live side by side in the templates as t("English", "عربي").
 """
 import hashlib
 import json
+import os
 from pathlib import Path
 
 from jinja2 import Environment, FileSystemLoader, pass_context
@@ -74,7 +75,6 @@ def org_jsonld():
         "alternateName": ["1st MED", "فيرست ميديكال"],
         "url": D.SITE_URL + "/",
         "logo": D.SITE_URL + "/assets/img/brand/logo.png",
-        "foundingDate": "2022",
         "slogan": "Making quality accessible.",
         "address": {"@type": "PostalAddress", "addressLocality": "Tala", "addressRegion": "Menoufia", "addressCountry": "EG"},
         "contactPoint": [{"@type": "ContactPoint", "contactType": "sales", "telephone": D.CONTACT["sales_phone"].replace(" ", "-"),
@@ -91,7 +91,10 @@ def build():
     written = []
     for lang in ("en", "ar"):
         other = "ar" if lang == "en" else "en"
+        only = os.environ.get("ONLY")
         for slug, tpl, nav_id, _ in PAGES:
+            if only and slug not in only.split(","):
+                continue
             out_rel = ("ar/" if lang == "ar" else "") + slug
             prefix = "../" * out_rel.count("/")
 

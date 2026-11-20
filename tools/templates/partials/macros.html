@@ -11,8 +11,6 @@
 <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2a8.2 8.2 0 0 1-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8s-.4-.1-.6.1-.6.8-.8 1-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.3a.5.5 0 0 0 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a.9.9 0 0 0-.7.3 2.8 2.8 0 0 0-.9 2.1 4.9 4.9 0 0 0 1 2.6 11.2 11.2 0 0 0 4.3 3.8c1.6.7 2.2.7 3 .6a2.6 2.6 0 0 0 1.7-1.2 2.1 2.1 0 0 0 .1-1.2c0-.1-.2-.2-.4-.3z"/></svg>
 {%- elif name == 'check' -%}
 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6L9 17l-5-5"/></svg>
-{%- elif name == 'info' -%}
-<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><circle cx="12" cy="12" r="9.5"/><path d="M12 11v6M12 7.5v.01"/></svg>
 {%- elif name == 'dressing' -%}
 <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="9" width="26" height="14" rx="3.5"/><rect x="10" y="12.5" width="12" height="7" rx="1.5"/></svg>
 {%- elif name == 'eye' -%}
@@ -24,42 +22,107 @@
 {%- endif -%}
 {%- endmacro %}
 
-{% macro closing(h_en, h_ar, p_en, p_ar) -%}
-<section class="section section--rule">
-  <div class="wrap closing">
-    <div>
-      <h2>{{ t(h_en, h_ar) }}</h2>
-      {% if p_en %}<p>{{ t(p_en, p_ar) }}</p>{% endif %}
-    </div>
-    <div class="actions">
-      <a class="btn btn--primary" href="{{ link('contact.html') }}">{{ t('Request a quote', 'اطلب عرض سعر') }}</a>
-      <a class="btn btn--line" href="https://wa.me/{{ C.sales_wa }}" target="_blank" rel="noopener">{{ icon('whatsapp') }} {{ t('Message us on WhatsApp', 'راسلنا على واتساب') }}</a>
+{#- Page header. kind: 'photo' (photo on the far side), 'pack' (packshots on green), 'plain' (mint, text only). -#}
+{% macro phead(kind, title, lead='', photo=None, pos='100% 50%', packs=[], crumbs=[]) -%}
+<section class="phead phead--{{ kind }}">
+  <div class="phead-grid">
+    {% if kind == 'photo' %}
+    <div class="phead-media" style="--pos:{{ pos }}">{{ img(photo, '', lazy=False) }}</div>
+    {% elif kind == 'pack' %}
+    <div class="phead-media"><div class="pack-comp" aria-hidden="true">{% for p in packs %}{{ img(p.src, '', lazy=False, extra=' style="' ~ p.style ~ '"') }}{% endfor %}</div></div>
+    {% endif %}
+    <div class="phead-copy">
+      {% if crumbs %}<ol class="crumbs">{% for label, href in crumbs %}<li>{% if href %}<a href="{{ href }}">{{ label }}</a>{% else %}{{ label }}{% endif %}</li>{% endfor %}</ol>{% endif %}
+      <h1>{{ title }}</h1>
+      {% if lead %}<p class="phead-lead">{{ lead }}</p>{% endif %}
     </div>
   </div>
 </section>
 {%- endmacro %}
 
+{#- Right Pro sizes drawn to scale (1 cm = the same length for every dressing). -#}
+{% macro lineup(catalog=False, start='10x18') -%}
+{% set rp = PRODUCTS[0] %}
+{% set first = SIZES | selectattr(0, 'equalto', start) | first %}
+{% set cm = t('cm', 'سم') %}
+<div class="rp{{ ' rp--catalog' if catalog }}" data-product="right-pro">
+  {% if catalog %}<div class="rp-stage">{% endif %}
+  <div class="rp-chart" role="group" aria-label="{{ t('Right Pro sizes, drawn to scale', 'مقاسات رايت برو بنسبها الحقيقية') }}" data-variants>
+    <div class="ruler" aria-hidden="true">
+      <span class="ruler-unit">{{ cm }}</span>
+      <span class="ruler-scale">{% for n in [0, 5, 10, 15, 20, 25, 30, 35] %}<i style="--n:{{ n }}">{{ n }}</i>{% endfor %}</span>
+    </div>
+    {% for key, label, pcs, im in SIZES %}
+    {% set w = key.split('x')[0] | int %}{% set h = key.split('x')[1] | int %}{% set b = 14 if w == 6 else 24 %}
+    {% set size = w ~ ' × ' ~ h ~ ' ' ~ cm %}
+    {% set pack = t(pcs ~ ' pieces per carton', pcs ~ ' قطعة في الكرتونة') %}
+    {% set wh = dims(im) %}
+    <button type="button" class="dressing" style="--w:{{ w }};--h:{{ h }}" aria-pressed="{{ 'true' if key == start else 'false' }}" aria-label="{{ size }}{{ t(', ', '، ') }}{{ pack }}"
+            data-key="{{ key }}" data-src="{{ asset(im) }}" data-w="{{ wh[0] }}" data-h="{{ wh[1] }}" data-size="{{ size }}" data-pack="{{ pack }}"
+            data-alt="{{ t('Right Pro carton, ', 'كرتونة رايت برو، مقاس ') ~ size }}">
+      <svg viewBox="0 0 {{ w * 10 }} {{ h * 10 }}" aria-hidden="true" focusable="false">
+        <rect class="d-edge" width="{{ w * 10 }}" height="{{ h * 10 }}" rx="8" fill="url(#fm-nonwoven)"/>
+        <rect x="{{ b }}" y="{{ b }}" width="{{ w * 10 - 2 * b }}" height="{{ h * 10 - 2 * b }}" rx="3" fill="url(#fm-pad)" stroke="#E2E8E4" stroke-width=".8"/>
+      </svg>
+      <span class="dressing-label">{{ w }}&#8239;×&#8239;{{ h }}</span>
+    </button>
+    {% endfor %}
+  </div>
+  {% if catalog %}
+    <div class="rp-carton">{{ img(first[3], t('Right Pro carton, ', 'كرتونة رايت برو، مقاس ') ~ first[1]|replace('cm', cm), lazy=False, extra=' data-variant-img') }}</div>
+  </div>
+  {% endif %}
+  <div class="rp-info">
+    {% if catalog %}
+      <h3 id="rp-title">{{ tt(rp.name) }}</h3>
+      <p>{{ tt(rp.desc) }}</p>
+    {% else %}
+      <div class="rp-carton">{{ img(first[3], t('Right Pro carton, ', 'كرتونة رايت برو، مقاس ') ~ first[1]|replace('cm', cm), extra=' data-variant-img') }}</div>
+    {% endif %}
+    <p class="rp-size"><span data-bind="size">{{ first[1]|replace('cm', cm) }}</span></p>
+    <p class="rp-pack" data-bind="pack">{{ t(first[2] ~ ' pieces per carton', first[2] ~ ' قطعة في الكرتونة') }}</p>
+    {% if catalog %}
+    <table class="spec"><tbody>{% for k, v in rp.spec %}<tr><th scope="row">{{ tt(k) }}</th><td>{{ tt(v) }}</td></tr>{% endfor %}</tbody></table>
+    {% endif %}
+    <div class="actions">
+      <a class="btn btn--primary" data-quote-link href="{{ link('contact.html') }}?product=right-pro&amp;size={{ start }}">{{ t('Request a quote for this size', 'اطلب عرض سعر لهذا المقاس') }}</a>
+      {% if not catalog %}<a class="btn btn--ghost" href="{{ link('products.html') }}#right-pro">{{ t('Full specifications', 'المواصفات كاملة') }}</a>{% endif %}
+    </div>
+  </div>
+</div>
+{%- endmacro %}
+
+{% macro prod_circle(p) -%}
+<a class="prod" href="{{ link('products.html') }}#{{ p.id }}">
+  <span class="stage-circle">{{ img(p.img, '') }}</span>
+  <span class="prod-name">{{ tt(p.name) }}</span>
+  <span class="prod-note">{{ tt(p.short) }}</span>
+</a>
+{%- endmacro %}
+
+{% macro circle(src, alt='') -%}
+<div class="stage-circle">{{ img(src, alt) }}</div>
+{%- endmacro %}
+
 {% macro ordering() -%}
-<ol class="steps" style="--n:3">
+<ol class="flow" style="--n:3">
   <li>
-    <h3>{{ t('Tell us what you need', 'أخبرنا بما تحتاجه') }}</h3>
-    <p>{{ t('Product, size, quantity, delivery city or port, and any documents you require.', 'المنتج والمقاس والكمية، ومدينة أو ميناء التسليم، وأي مستندات تطلبها.') }}</p>
+    <h3>{{ t('Send your request', 'أرسل طلبك') }}</h3>
+    <p>{{ t('Product, size, quantity, delivery city or port, and any documents you need.', 'المنتج والمقاس والكمية، ومدينة أو ميناء التسليم، وأي مستندات تحتاجها.') }}</p>
   </li>
   <li>
-    <h3>{{ t('Get a clear quote', 'استلم عرض سعر واضحًا') }}</h3>
-    <p>{{ t('Price, lead time and the documents we can provide for that product, in writing.', 'السعر وموعد التوريد والمستندات المتاحة لهذا المنتج، مكتوبة.') }}</p>
+    <h3>{{ t('Receive a quote', 'استلم عرض السعر') }}</h3>
+    <p>{{ t('Price, lead time and the documents available for the product, in writing.', 'السعر وموعد التوريد والمستندات المتاحة للمنتج، مكتوبة.') }}</p>
   </li>
   <li>
     <h3>{{ t('Confirm and receive', 'أكّد واستلم') }}</h3>
-    <p>{{ t('Once you confirm, we produce, pack and deliver as agreed in the quote.', 'بعد تأكيدك نصنّع ونعبّئ ونسلّم كما اتفقنا في عرض السعر.') }}</p>
+    <p>{{ t('We produce, pack and deliver as agreed in the quote.', 'نصنّع ونعبّئ ونسلّم كما ورد في عرض السعر.') }}</p>
   </li>
 </ol>
 {%- endmacro %}
 
-{% macro product_links(ids) -%}
-<ul class="chips-links">
-  {% for p in PRODUCTS if p.id in ids %}
-  <li><a href="{{ link('products.html') }}#{{ p.id }}">{{ img(p.img, '', lazy=True) }}<span>{{ tt(p.name) }}</span></a></li>
-  {% endfor %}
-</ul>
+{% macro supply(ids) -%}
+<div class="prods">
+  {% for p in PRODUCTS if p.id in ids %}{{ prod_circle(p) }}{% endfor %}
+</div>
 {%- endmacro %}

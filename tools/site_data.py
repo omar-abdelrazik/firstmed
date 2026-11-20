@@ -1,7 +1,7 @@
 """Shared site data. Every visible string is a pair: (English, Arabic).
 
-Honesty rule for this file: only facts we can show. If something is not
-confirmed, it is written as "on request" or labelled as a target.
+Each language is written for its own reader. Never put the other language's
+word next to a title on a page.
 """
 
 SITE_URL = "https://www.1st-medical.com"
@@ -31,23 +31,23 @@ SERVICES = [
                       "عبوات 20 و75 قطعة تناسب العيادات الخارجية والرعاية الأولية.")},
             {"id": "pharmacies", "name": ("Pharmacies", "الصيدليات"),
              "desc": ("Shelf-ready cartons, labelled in Arabic and English.",
-                      "كراتين جاهزة للرف، بياناتها بالعربية والإنجليزية.")},
+                      "كراتين جاهزة للعرض، بياناتها بالعربية والإنجليزية.")},
         ],
     },
     {
         "slug": "services/government.html",
         "title": ("For government", "للجهات الحكومية"),
-        "lead": ("Public healthcare, NGOs and emergency programmes", "الرعاية الحكومية والمنظمات الأهلية وبرامج الطوارئ"),
+        "lead": ("Public healthcare, NGOs and emergency programmes", "الرعاية الصحية العامة والمنظمات الأهلية وبرامج الطوارئ"),
         "items": [
             {"id": "government-healthcare", "name": ("Government healthcare", "الرعاية الصحية الحكومية"),
-             "desc": ("We prepare the documents your tender asks for, and say early what we can supply.",
-                      "نجهّز المستندات التي تطلبها المناقصة، ونوضّح مبكرًا ما نستطيع توريده.")},
+             "desc": ("Tender documents prepared to your specification.",
+                      "مستندات المناقصة نجهّزها وفق كراسة الشروط.")},
             {"id": "ngos", "name": ("NGOs", "المنظمات الأهلية"),
              "desc": ("Fair pricing for humanitarian and community health programmes.",
                       "أسعار عادلة لبرامج الإغاثة والصحة المجتمعية.")},
             {"id": "emergency", "name": ("Emergency response", "الاستجابة للطوارئ"),
-             "desc": ("A straight answer on what is in stock and how fast it can move.",
-                      "إجابة واضحة عمّا في المخزن، وعن أقرب موعد للتسليم.")},
+             "desc": ("Clear answers on stock and delivery when time matters.",
+                      "إجابات واضحة عن المخزون ومواعيد التسليم وقت الحاجة.")},
         ],
     },
     {
@@ -57,10 +57,10 @@ SERVICES = [
         "items": [
             {"id": "distributors", "name": ("Distributors", "الموزعون"),
              "desc": ("Volume pricing, with lead times confirmed before you order.",
-                      "أسعار للكميات، ومواعيد توريد نؤكدها قبل الطلب.")},
+                      "أسعار للكميات، ومواعيد توريد مؤكدة قبل الطلب.")},
             {"id": "export", "name": ("Export partners", "شركاء التصدير"),
-             "desc": ("The Gulf and Europe are our 2027 target. Talk to us early.",
-                      "الخليج وأوروبا هدفنا في 2027. تواصل معنا من الآن.")},
+             "desc": ("Gulf and European markets, targeted for 2027.",
+                      "أسواق الخليج وأوروبا، ضمن خطتنا لعام 2027.")},
             {"id": "oem", "name": ("OEM and private label", "التصنيع بعلامتك التجارية"), "page": "services/oem.html",
              "desc": ("Your brand on our dressings: pouch, carton and pack count.",
                       "علامتك التجارية على منتجاتنا: الكيس والكرتونة وعدد القطع.")},
@@ -96,18 +96,18 @@ PRODUCTS = [
                  "لاصق جروح من القماش غير المنسوج، بوسادة ماصّة لا تلتصق بالجرح."),
         "img": "img/products/right-pro-10x18.webp",
         "spec": [
-            (("Material", "الخامة"), ("Non-woven fabric with adhesive, absorbent non-stick pad", "قماش غير منسوج لاصق، ووسادة ماصّة لا تلتصق بالجرح")),
+            (("Material", "الخامة"), ("Non-woven fabric with adhesive; absorbent, non-stick pad", "قماش غير منسوج لاصق، ووسادة ماصّة لا تلتصق بالجرح")),
             (("Labelling", "البيانات"), ("Arabic and English", "بالعربية والإنجليزية")),
-            (("Every pouch", "على كل كيس"), ("Production and expiry dates", "تاريخ الإنتاج وتاريخ الانتهاء")),
+            (("On every pouch", "على كل كيس"), ("Production and expiry dates", "تاريخ الإنتاج وتاريخ الانتهاء")),
             (("Made in", "بلد الصنع"), ("Tala, Menoufia, Egypt", "تلا، المنوفية، مصر")),
         ],
     },
     {
         "id": "pads", "cat": "wound",
         "name": ("Absorbent pads", "وسادات ماصّة"),
-        "short": ("Non-adhesive, three shapes", "غير لاصقة، بثلاثة أشكال"),
+        "short": ("Non-adhesive, in three shapes", "غير لاصقة، بثلاثة أشكال"),
         "desc": ("Soft, non-adhesive absorbent pads for wound care, held in place with gauze or a bandage.",
-                 "وسادات ماصّة ناعمة وغير لاصقة للعناية بالجروح، تُثبَّت بالشاش أو الرباط."),
+                 "وسادات ماصّة ناعمة غير لاصقة للعناية بالجروح، تُثبَّت بالشاش أو الرباط."),
         "img": "img/products/pad-square.webp",
         "variants": [
             ("square", ("Square", "مربعة"), "img/products/pad-square.webp"),
@@ -133,10 +133,10 @@ PRODUCTS = [
     },
     {
         "id": "eye-pad", "cat": "eye",
-        "name": ("Adhesive eye pad, adult", "غطاء عين لاصق للكبار"),
-        "short": ("Oval, with a soft absorbent centre", "بيضاوي، بوسادة ماصّة ناعمة"),
-        "desc": ("Oval adhesive eye pad with a soft absorbent centre, made under our Right Pro name.",
-                 "غطاء عين بيضاوي لاصق، بوسادة ماصّة ناعمة في المنتصف، ضمن منتجات رايت برو."),
+        "name": ("Adhesive eye pad", "غطاء عين لاصق"),
+        "short": ("Oval, adult size", "بيضاوي، مقاس الكبار"),
+        "desc": ("Oval adhesive eye pad with a soft absorbent centre, part of the Right Pro range.",
+                 "غطاء عين بيضاوي لاصق بوسادة ماصّة ناعمة في المنتصف، ضمن منتجات رايت برو."),
         "img": "img/products/eye-pad-oval.webp",
         "spec": [
             (("Shape", "الشكل"), ("Oval", "بيضاوي")),
@@ -152,7 +152,7 @@ PRODUCTS = [
                  "قماش غير منسوج على رولات للاستخدام الطبي."),
         "img": "img/products/nonwoven-roll.webp",
         "spec": [
-            (("Colours, widths, weights", "الألوان والعروض والأوزان"), ("On request", "حسب الطلب")),
+            (("Colours, widths and weights", "الألوان والعروض والأوزان"), ("On request", "حسب الطلب")),
         ],
     },
 ]

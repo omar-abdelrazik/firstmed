@@ -1,99 +1,80 @@
 {% extends 'base.html' %}
-{% from 'partials/macros.html' import icon, closing with context %}
+{% from 'partials/macros.html' import icon, phead with context %}
 {% block title %}{{ t('About us | First Medical', 'من نحن | فيرست ميديكال') }}{% endblock %}
-{% block desc %}{{ t('First Medical was founded in 2022 in Tala, Menoufia, by partners with more than 30 years in the medical-supplies industry. Our vision, mission and the four things we are building toward.', 'تأسست فيرست ميديكال عام 2022 في تلا بالمنوفية على يد شركاء بخبرة تزيد على 30 عامًا في صناعة المستلزمات الطبية. رؤيتنا ورسالتنا، والأمور الأربعة التي نبني من أجلها.') }}{% endblock %}
+{% block desc %}{{ t('First Medical manufactures medical consumables in Tala, Menoufia, Egypt. Our vision, our mission and the four pillars behind our decisions.', 'فيرست ميديكال مصنع للمستلزمات الطبية في تلا بمحافظة المنوفية. رؤيتنا ورسالتنا، والركائز الأربع التي توجّه قراراتنا.') }}{% endblock %}
 {% block content %}
 
-<section class="page-hero">
-  <div class="wrap">
-    <h1 class="h-page">{{ t('A new factory. Partners with decades in the trade.', 'مصنع جديد، وشركاء بخبرة عقود في هذه الصناعة.') }}</h1>
-    <p class="lead">{{ t("First Medical was founded in 2022 in Tala, Menoufia, by partners who have spent more than 30 years in the medical-supplies industry. We make medical consumables, starting with adhesive wound dressings, and we're building the factory, its systems and its range one step at a time.", 'تأسست فيرست ميديكال عام 2022 في تلا بمحافظة المنوفية، على يد شركاء قضوا أكثر من 30 عامًا في صناعة المستلزمات الطبية. نصنع المستلزمات الطبية الاستهلاكية، وبدأنا بلاصقات الجروح، ونبني المصنع ومنظومة عمله وتشكيلة منتجاته خطوة بخطوة.') }}</p>
-  </div>
-</section>
+{{ phead('photo', t('About First Medical', 'عن فيرست ميديكال'),
+  t('We manufacture medical consumables in Tala, Menoufia, starting with Right Pro adhesive wound dressings.', 'نصنع المستلزمات الطبية في تلا بمحافظة المنوفية، وأول خطوطنا لاصقات الجروح رايت برو.'),
+  photo='img/hero/still-life.webp', pos='100% 60%') }}
 
-<section class="section" id="vision" aria-label="{{ t('Vision and mission', 'الرؤية والرسالة') }}">
-  <div class="wrap">
-    <div class="vm">
-      <div>
-        <h2>{{ t('Vision', 'رؤيتنا') }}</h2>
-        <p class="statement">{{ t('Reliable medical quality within reach of every healthcare provider, and "Made in Egypt" as a reason to choose a product, not a reason to discount it.', 'أن تكون الجودة الطبية الموثوقة في متناول كل مقدّم رعاية صحية، وأن تصبح «صُنع في مصر» سببًا لاختيار المنتج، لا سببًا لتخفيض سعره.') }}</p>
-      </div>
-      <div>
-        <h2>{{ t('Mission', 'رسالتنا') }}</h2>
-        <p class="statement">{{ t('To make dependable medical consumables at a fair cost, build the systems behind them, and reinvest what we earn in capacity, people and new markets.', 'أن نصنع مستلزمات طبية يُعتمد عليها بتكلفة عادلة، ونبني المنظومة التي تقف خلفها، ونعيد استثمار ما نكسبه في الطاقة الإنتاجية والناس والأسواق الجديدة.') }}</p>
-      </div>
+<section class="sec" id="vision" aria-label="{{ t('Vision and mission', 'الرؤية والرسالة') }}">
+  <div class="wrap vm">
+    <div class="vm-card vm-card--mint">
+      <h2>{{ t('Our vision', 'رؤيتنا') }}</h2>
+      <p>{{ t('Reliable medical quality within reach of every healthcare provider, and Egyptian manufacturing as a reason to choose a product.', 'أن تكون الجودة الطبية الموثوقة في متناول كل مقدّم رعاية صحية، وأن يكون التصنيع المصري سببًا لاختيار المنتج.') }}</p>
+    </div>
+    <div class="vm-card vm-card--green">
+      <h2>{{ t('Our mission', 'رسالتنا') }}</h2>
+      <p>{{ t('To make dependable medical consumables at a fair cost, build the systems behind them, and reinvest what we earn in capacity, people and new markets.', 'أن نصنع مستلزمات طبية يُعتمد عليها بتكلفة عادلة، ونبني المنظومة التي تقف خلفها، ونعيد استثمار عائدنا في الطاقة الإنتاجية والكوادر والأسواق الجديدة.') }}</p>
     </div>
   </div>
 </section>
 
-<section class="section section--surface" id="pillars" aria-labelledby="pillars-title">
+<section class="sec sec--forest" id="pillars" aria-labelledby="pillars-title">
   <div class="wrap">
-    <div class="section-head">
-      <h2 class="h-section" id="pillars-title">{{ t("What we're building toward", 'إلى أين نتجه') }}</h2>
-      <p class="lead">{{ t('Four ideas sit behind every decision we make, from what we price to which line we add next.', 'أربع أفكار تقف خلف كل قرار نتخذه، من تسعير المنتج إلى اختيار الخط التالي.') }}</p>
+    <div class="sec-head">
+      <h2 id="pillars-title">{{ t('Our pillars', 'ركائز عملنا') }}</h2>
+      <p>{{ t('Four ideas guide our decisions, from pricing to the next production line.', 'أربع أفكار توجّه قراراتنا، من التسعير إلى خط الإنتاج التالي.') }}</p>
     </div>
     <div class="pillars">
       <article class="pillar">
-        <h3>{{ t('Impact', 'الأثر') }} <span class="twin" lang="{{ other }}">{{ t('الأثر', 'Impact') }}</span></h3>
-        <p>{{ t("We don't want a business that only makes a profit. We want the work to be worth something to the people who use it.", 'لا نريد عملًا هدفه الربح وحده؛ نريد لعملنا قيمة حقيقية عند من يستخدمه.') }}</p>
+        <h3>{{ t('Impact', 'الأثر') }}</h3>
+        <p>{{ t('A business with real value for the people it serves:', 'عمل له قيمة حقيقية لمن نخدمهم:') }}</p>
         <ul>
-          <li>{{ t('Medical supplies of reliable quality at a sensible cost.', 'مستلزمات طبية بجودة موثوقة وتكلفة معقولة.') }}</li>
-          <li>{{ t('Helping hospitals and care providers get the products they need.', 'مساعدة المستشفيات ومقدّمي الرعاية على الوصول لما يحتاجونه.') }}</li>
-          <li>{{ t('Narrowing the gap between what a medical product costs and how good it is.', 'تقليص الفجوة بين سعر المنتج الطبي وجودته.') }}</li>
-          <li>{{ t('Better local availability of everyday supplies.', 'توافر محلي أفضل للمستلزمات اليومية.') }}</li>
+          <li>{{ t('Reliable medical supplies at a sensible cost.', 'مستلزمات طبية موثوقة بتكلفة مناسبة.') }}</li>
+          <li>{{ t('Helping healthcare providers get the products they need.', 'مساعدة مقدّمي الرعاية الصحية على الوصول لما يحتاجونه.') }}</li>
+          <li>{{ t("Narrowing the gap between a product's price and its quality.", 'تقليص الفجوة بين سعر المنتج الطبي وجودته.') }}</li>
+          <li>{{ t('Better local availability.', 'توافر محلي أفضل للمنتجات.') }}</li>
         </ul>
       </article>
       <article class="pillar">
-        <h3>{{ t('Accessibility', 'إتاحة الرعاية الصحية') }} <span class="twin" lang="{{ other }}">{{ t('إتاحة الرعاية الصحية', 'Accessibility') }}</span></h3>
-        <p>{{ t("Not every hospital has the same budget, and not every patient can carry the cost of care. We're building a company on the idea that reliable medical quality doesn't have to be expensive.", 'ليست كل المستشفيات بالميزانية نفسها، ولا كل مريض يقدر على تكلفة علاجه. ونحن نبني شركتنا على فكرة بسيطة: الجودة الطبية الموثوقة لا يلزم أن تكون باهظة الثمن.') }}</p>
+        <h3>{{ t('Accessibility', 'إتاحة الرعاية الصحية') }}</h3>
+        <p>{{ t('Purchasing power differs from one healthcare institution to another, and from one patient to another. Reliable medical quality does not have to be expensive.', 'تختلف القدرة الشرائية من مؤسسة صحية لأخرى، ومن مريض لآخر. والجودة الطبية الموثوقة لا يلزم أن تكون باهظة الثمن.') }}</p>
       </article>
       <article class="pillar">
-        <h3>{{ t('Industrial excellence', 'التميز الصناعي') }} <span class="twin" lang="{{ other }}">{{ t('التميز الصناعي', 'Industrial excellence') }}</span></h3>
-        <p>{{ t("We're small today, and we don't intend to stay a small workshop with a handful of items.", 'ما زلنا مصنعًا صغيرًا، ولا ننوي أن نبقى ورشة تنتج بضعة أصناف.') }}</p>
+        <h3>{{ t('Industrial excellence', 'التميز الصناعي') }}</h3>
+        <p>{{ t('We invest in becoming a stronger manufacturer:', 'نستثمر لنصبح مصنعًا أقوى:') }}</p>
         <ul>
-          <li>{{ t('Better manufacturing processes and higher quality standards.', 'تطوير عمليات التصنيع ورفع معايير الجودة.') }}</li>
-          <li>{{ t('Real systems for operations, management and sales.', 'منظومة حقيقية للتشغيل والإدارة والمبيعات.') }}</li>
-          <li>{{ t('New production lines and new products.', 'خطوط إنتاج جديدة ومنتجات جديدة.') }}</li>
-          <li>{{ t('Gulf and European markets.', 'الوصول إلى أسواق الخليج وأوروبا.') }}</li>
-          <li>{{ t('Egyptian manufacturing as a competitive edge.', 'أن يصبح التصنيع المصري ميزة تنافسية.') }}</li>
+          <li>{{ t('Better manufacturing and higher quality standards.', 'تطوير التصنيع ورفع معايير الجودة.') }}</li>
+          <li>{{ t('Clear systems for operations, management and sales.', 'منظومة واضحة للتشغيل والإدارة والمبيعات.') }}</li>
+          <li>{{ t('New production lines and products.', 'خطوط إنتاج ومنتجات جديدة.') }}</li>
+          <li>{{ t('Gulf and European markets, targeted for 2027.', 'أسواق الخليج وأوروبا، ضمن خطتنا لعام 2027.') }}</li>
+          <li>{{ t('Egyptian manufacturing as a competitive advantage.', 'أن يصبح التصنيع المصري ميزة تنافسية.') }}</li>
         </ul>
       </article>
       <article class="pillar">
-        <h3>{{ t('Sustainable growth', 'النمو المستدام') }} <span class="twin" lang="{{ other }}">{{ t('النمو المستدام', 'Sustainable growth') }}</span></h3>
-        <p>{{ t('Not expansion for its own sake. A business that earns a real return and reinvests it in production capacity, jobs and new markets. Impact without a sound business model rarely lasts.', 'لا نريد التوسع لمجرد التوسع. نريد عملًا يحقق عائدًا حقيقيًا ويعيد استثماره في الطاقة الإنتاجية وفرص العمل والأسواق الجديدة؛ فالأثر الذي لا يقوم على نموذج اقتصادي سليم نادرًا ما يستمر.') }}</p>
+        <h3>{{ t('Sustainable growth', 'النمو المستدام') }}</h3>
+        <p>{{ t('A business that earns a real return and reinvests it in production capacity, jobs and new markets. Impact without a sustainable business model rarely lasts.', 'عمل يحقق عائدًا اقتصاديًا حقيقيًا، ويعيد استثماره في الطاقة الإنتاجية وفرص العمل والأسواق الجديدة؛ فالأثر الذي لا يقوم على نموذج اقتصادي مستدام نادرًا ما يستمر.') }}</p>
       </article>
     </div>
   </div>
 </section>
 
-<section class="section" id="timeline" aria-labelledby="timeline-title">
+<section class="sec" aria-labelledby="where-title">
   <div class="wrap split">
-    <div class="ledger-intro">
-      <h2 class="h-section" id="timeline-title">{{ t('So far, and next', 'ما أنجزناه، وما بعده') }}</h2>
-      <p class="muted">{{ t('Outlined years are targets, not achievements.', 'السنوات المفرّغة أهداف، لا إنجازات.') }}</p>
+    <div class="split-media" style="--pos:62% 50%">
+      {{ img('img/photo/machine-soft.webp', t('A dressing production machine', 'ماكينة إنتاج لاصقات الجروح')) }}
+      {{ img('img/detail/film-right-pro-crop.webp', t('Printed Right Pro pouch film', 'فيلم أكياس رايت برو المطبوع'), 'inset') }}
     </div>
-    <ol class="timeline">
-      <li><span class="when nums">2022</span><p>{{ t('The factory is founded in Tala, Menoufia.', 'تأسيس المصنع في تلا بالمنوفية.') }}</p></li>
-      <li><span class="when">{{ t('Today', 'اليوم') }}</span><p>{{ t('Right Pro adhesive dressings in five sizes and an adult eye pad, alongside absorbent pads, gauze and non-woven rolls.', 'لاصقات رايت برو بخمسة مقاسات وغطاء عين للكبار، إلى جانب الوسادات الماصّة والشاش ورولات القماش غير المنسوج.') }}</p></li>
-      <li class="is-target"><span class="when nums">2027</span><p>{{ t('First export markets: the Gulf and Europe.', 'أول أسواق التصدير: الخليج وأوروبا.') }} <span class="tag">{{ t('Target', 'هدف') }}</span></p></li>
-    </ol>
+    <div class="split-copy">
+      <h2 id="where-title">{{ t('Made in Tala, Menoufia', 'صُنع في تلا بالمنوفية') }}</h2>
+      <p>{{ t('Our factory is in Tala, in Menoufia governorate in the Nile Delta. Buyers are welcome to visit.', 'مصنعنا في مدينة تلا بمحافظة المنوفية في دلتا النيل، ونرحب بزيارة المشترين.') }}</p>
+      <div class="actions">
+        <a class="btn btn--line" href="{{ link('manufacturing.html') }}">{{ t('How we make it', 'كيف نصنع منتجاتنا') }}</a>
+        <a class="btn btn--line" href="{{ C.maps }}" target="_blank" rel="noopener">{{ icon('pin') }} {{ t('Open in Google Maps', 'افتح في خرائط جوجل') }}</a>
+      </div>
+    </div>
   </div>
 </section>
-
-<section class="section section--surface" id="how-we-talk" aria-labelledby="talk-title">
-  <div class="wrap">
-    <div class="section-head">
-      <h2 class="h-section" id="talk-title">{{ t('How we talk about ourselves', 'كيف نتحدث عن أنفسنا') }}</h2>
-      <p class="lead">{{ t('Four rules for this website, our quotes and every conversation with a buyer.', 'أربع قواعد نلتزم بها في هذا الموقع، وفي عروض الأسعار، وفي كل حديث مع مشترٍ.') }}</p>
-    </div>
-    <ul class="rules">
-      <li>{{ t("We only publish numbers we can prove.", 'لا ننشر رقمًا لا نستطيع إثباته.') }}</li>
-      <li>{{ t('Goals are labelled as goals, never as achievements.', 'الأهداف نكتبها أهدافًا، لا إنجازات.') }}</li>
-      <li>{{ t("If we can't supply something, we say so early.", 'إن لم نستطع توريد شيء، نقولها مبكرًا.') }}</li>
-      <li>{{ t("We send real documents for the product you're buying, and never claim a certificate we don't hold.", 'نرسل المستندات الفعلية للمنتج الذي تشتريه، ولا ندّعي شهادة لا نملكها.') }}</li>
-    </ul>
-  </div>
-</section>
-
-{{ closing('Work with a factory that tells you where it stands.', 'تعامل مع مصنع يخبرك بالضبط أين يقف.', '', '') }}
 {% endblock %}

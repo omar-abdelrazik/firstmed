@@ -1,0 +1,17 @@
+{% from 'partials/macros.html' import icon %}
+<section class="cta-band" aria-labelledby="cta-title">
+  <div class="wrap">
+    <div>
+      <h2 id="cta-title">{{ t('Request a quote', 'اطلب عرض سعر') }}</h2>
+      <p>{{ t('Send us the product, size and quantity, and we will reply by WhatsApp or email.', 'أرسل لنا المنتج والمقاس والكمية، ونرد عليك عبر واتساب أو البريد الإلكتروني.') }}</p>
+      <p class="cta-contacts">
+        <a href="tel:{{ C.sales_phone|replace(' ', '') }}"><span class="ltr">{{ C.sales_phone }}</span></a>
+        <a href="mailto:{{ C.sales_email }}">{{ C.sales_email }}</a>
+      </p>
+    </div>
+    <div class="actions">
+      <a class="btn btn--light" href="https://wa.me/{{ C.sales_wa }}" target="_blank" rel="noopener">{{ icon('whatsapp') }} {{ t('Message us on WhatsApp', 'راسلنا على واتساب') }}</a>
+      <a class="btn btn--primary" href="{{ link('contact.html') }}">{{ t('Quote request form', 'نموذج طلب عرض السعر') }}</a>
+    </div>
+  </div>
+</section>

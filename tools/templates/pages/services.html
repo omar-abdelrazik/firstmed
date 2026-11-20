@@ -1,39 +1,45 @@
 {% extends 'base.html' %}
-{% from 'partials/macros.html' import icon, closing, ordering with context %}
+{% from 'partials/macros.html' import icon, phead, ordering with context %}
 {% block title %}{{ t('Our services | First Medical', 'خدماتنا | فيرست ميديكال') }}{% endblock %}
-{% block desc %}{{ t('How First Medical works with hospitals, clinics and pharmacies; government buyers, NGOs and emergency programmes; and distributors, export partners and private-label brands.', 'كيف تعمل فيرست ميديكال مع المستشفيات والعيادات والصيدليات، ومع الجهات الحكومية والمنظمات الأهلية وبرامج الطوارئ، ومع الموزعين وشركاء التصدير والعلامات الخاصة.') }}{% endblock %}
+{% block desc %}{{ t('How First Medical supplies hospitals, clinics and pharmacies; government buyers, NGOs and emergency programmes; distributors and export partners; and private-label brands.', 'كيف تورّد فيرست ميديكال للمستشفيات والعيادات والصيدليات، وللجهات الحكومية والمنظمات الأهلية وبرامج الطوارئ، وللموزعين وشركاء التصدير، وللعلامات التجارية الخاصة.') }}{% endblock %}
 {% block content %}
 
-<section class="page-hero">
-  <div class="wrap">
-    <h1 class="h-page">{{ t('Our services', 'خدماتنا') }}</h1>
-    <p class="lead">{{ t('We supply three kinds of buyers, and each needs something different from a factory. Choose yours.', 'نورّد لثلاث فئات من المشترين، ولكل فئة احتياجات مختلفة من المصنع. اختر فئتك.') }}</p>
-  </div>
-</section>
+{{ phead('photo', t('Our services', 'خدماتنا'),
+  t('We supply healthcare providers, public buyers and trade partners, and we manufacture under your brand.', 'نورّد لمقدّمي الرعاية الصحية والجهات الحكومية والشركاء التجاريين، ونصنّع باسم علامتك التجارية.'),
+  photo='img/hero/cartons-flatlay.webp', pos='100% 50%') }}
 
-<section class="section">
-  <div class="wrap hub">
+<section class="sec" aria-label="{{ t('Services', 'الخدمات') }}">
+  <div class="wrap tiles tiles--2">
+    {% set arts = [
+      [('img/products/right-pro-10x12.webp', 'width:52%;inset-inline-start:2%;bottom:-6%'), ('img/products/eye-pad-oval.webp', 'width:24%;inset-inline-start:58%;bottom:8%')],
+      [('img/products/right-pro-10x25.webp', 'width:66%;inset-inline-start:0;bottom:34%'), ('img/products/gauze-swabs.webp', 'width:36%;inset-inline-start:52%;bottom:-8%')],
+      [('img/products/right-pro-10x35.webp', 'width:72%;inset-inline-start:-2%;bottom:4%'), ('img/products/right-pro-6x8.webp', 'width:24%;inset-inline-start:66%;bottom:24%')],
+    ] %}
+    {% set tones = ['mint', 'green', 'forest'] %}
     {% for g in SERVICES %}
-    <a class="hub-card" href="{{ link(g.slug) }}">
-      <h2>{{ tt(g.title) }}</h2>
-      <p>{{ tt(g.lead) }}</p>
-      <ul>{% for it in g['items'] %}<li>{{ tt(it.name) }}</li>{% endfor %}</ul>
+    <a class="tile tile--{{ tones[loop.index0] }}" href="{{ link(g.slug) }}">
+      <div>
+        <h2>{{ tt(g.title) }}</h2>
+        <p>{{ tt(g.lead) }}</p>
+        <ul>{% for it in g['items'] %}<li>{{ tt(it.name) }}</li>{% endfor %}</ul>
+      </div>
+      <div class="tile-art" aria-hidden="true">{% for src, style in arts[loop.index0] %}{{ img(src, '', extra=' style="' ~ style ~ '"') }}{% endfor %}</div>
     </a>
     {% endfor %}
-    <a class="hub-card" href="{{ link('services/oem.html') }}">
-      <h2>{{ t('OEM and private label', 'التصنيع بعلامتك التجارية') }}</h2>
-      <p>{{ t('Your brand on dressings made in our factory: pouch, carton and pack count.', 'علامتك التجارية على لاصقات تُصنع في مصنعنا: الكيس والكرتونة وعدد القطع.') }}</p>
-      <ul><li>{{ t('What you can customise', 'ما يمكن تخصيصه') }}</li><li>{{ t('How a private-label order runs', 'كيف يسير طلب العلامة الخاصة') }}</li></ul>
+    <a class="tile tile--mint" href="{{ link('services/oem.html') }}">
+      <div>
+        <h2>{{ t('OEM and private label', 'التصنيع بعلامتك التجارية') }}</h2>
+        <p>{{ t('Your brand on dressings made in our factory: pouch, carton and pack count.', 'علامتك التجارية على لاصقات تُصنع في مصنعنا: الكيس والكرتونة وعدد القطع.') }}</p>
+      </div>
+      <div class="tile-art" aria-hidden="true">{{ img('img/detail/film-eye-pad.webp', '', extra=' style="width:58%;inset-inline-start:4%;bottom:-10%;border-radius:10px;transform:rotate(-4deg)"') }}{{ img('img/products/right-pro-10x18.webp', '', extra=' style="width:44%;inset-inline-start:52%;bottom:8%"') }}</div>
     </a>
   </div>
 </section>
 
-<section class="section section--surface section--rule" aria-labelledby="order-title">
+<section class="sec sec--mist" aria-labelledby="order-title">
   <div class="wrap">
-    <div class="section-head"><h2 class="h-section" id="order-title">{{ t('How ordering works', 'كيف يتم الطلب') }}</h2></div>
+    <div class="sec-head"><h2 id="order-title">{{ t('How ordering works', 'طريقة الطلب') }}</h2></div>
     {{ ordering() }}
   </div>
 </section>
-
-{{ closing('Not sure which applies to you?', 'لست متأكدًا أي فئة تناسبك؟', "Tell us what you're buying for. We'll take it from there.", 'أخبرنا لمن تشتري، ونتولى نحن الباقي.') }}
 {% endblock %}

@@ -1,42 +1,33 @@
 {% extends 'base.html' %}
-{% from 'partials/macros.html' import icon, closing with context %}
-{% block title %}{{ t('Questions buyers ask | First Medical', 'أسئلة يطرحها المشترون | فيرست ميديكال') }}{% endblock %}
-{% block desc %}{{ t('Straight answers about First Medical: who we are, how long we have operated, exports, certificates, minimum orders, samples and private label.', 'إجابات مباشرة عن فيرست ميديكال: من نحن، ومنذ متى نعمل، والتصدير، والشهادات، والحد الأدنى للطلب، والعينات، والتصنيع بعلامتك التجارية.') }}{% endblock %}
+{% from 'partials/macros.html' import icon, phead with context %}
+{% block title %}{{ t('FAQ | First Medical', 'الأسئلة الشائعة | فيرست ميديكال') }}{% endblock %}
+{% block desc %}{{ t('Answers for buyers: manufacturing, exports, documents, minimum orders, samples, private label and factory visits.', 'إجابات للمشترين عن التصنيع والتصدير والمستندات والحد الأدنى للطلب والعينات والتصنيع بعلامتك التجارية وزيارة المصنع.') }}{% endblock %}
 {% set faqs = [
-  (('Are you a manufacturer or a trader?', 'هل أنتم مصنع أم تاجر؟'),
-   ('A manufacturer. Our factory is in Tala, Menoufia, and that is where Right Pro dressings are made.', 'مصنع. مصنعنا في تلا بمحافظة المنوفية، وفيه تُصنع لاصقات رايت برو.')),
-  (('How long have you been operating?', 'منذ متى تعملون؟'),
-   ('The factory was founded in 2022. Our partners have more than 30 years in the medical-supplies industry.', 'تأسس المصنع عام 2022، ولدى شركائنا خبرة تزيد على 30 عامًا في صناعة المستلزمات الطبية.')),
+  (('Are you a manufacturer or a trader?', 'هل أنتم مصنع أم شركة تجارية؟'),
+   ('A manufacturer. Right Pro dressings are made in our factory in Tala, Menoufia.', 'مصنع. تُصنع لاصقات رايت برو في مصنعنا بتلا في محافظة المنوفية.')),
   (('Do you export?', 'هل تصدّرون؟'),
-   ("Not yet. The Gulf and Europe are our target for 2027. If you're a distributor in those markets, we'd like to talk now.", 'ليس بعد. الخليج وأوروبا هدفنا في 2027. وإن كنت موزعًا في هذه الأسواق فنحب أن نتحدث من الآن.')),
-  (('Which certificates and registrations do you hold?', 'ما الشهادات والتسجيلات التي لديكم؟'),
-   ("Tell us which product you're interested in and we'll send its current documents. We don't list certificates on this site, because what matters is the paperwork for your product in your market.", 'أخبرنا بالمنتج الذي يهمك، وسنرسل لك مستنداته الحالية. لا نعرض شهادات في هذا الموقع، لأن المهم هو مستندات منتجك أنت في سوقك أنت.')),
+   ('Our first export markets are the Gulf and Europe, targeted for 2027. If you distribute in those markets, contact us now.', 'أول أسواق التصدير التي نستهدفها هي الخليج وأوروبا بحلول 2027. إن كنت موزعًا في هذه الأسواق، تواصل معنا من الآن.')),
+  (('Which certificates and registrations do you hold?', 'ما الشهادات والتسجيلات المتوفرة لديكم؟'),
+   ('Ask about the product you need and we will send its current documents and registration status.', 'اسأل عن المنتج الذي تحتاجه، وسنرسل لك مستنداته الحالية وحالة تسجيله.')),
   (('What is your minimum order?', 'ما الحد الأدنى للطلب؟'),
-   ("It depends on the product and the packaging. You'll get an exact figure in your quote.", 'يختلف حسب المنتج والتغليف، وستجد الرقم الدقيق في عرض السعر.')),
-  (('Can you make products under our brand?', 'هل تصنّعون باسم علامتنا التجارية؟'),
+   ('It depends on the product and the packaging. Your quote states the exact figure.', 'يختلف حسب المنتج والتغليف، ويحدده عرض السعر بدقة.')),
+  (('Can you manufacture under our brand?', 'هل تصنّعون باسم علامتنا التجارية؟'),
    ('Yes. <a href="' ~ link('services/oem.html') ~ '">See how private label works</a>.', 'نعم. <a href="' ~ link('services/oem.html') ~ '">اطّلع على طريقة التصنيع بعلامتك التجارية</a>.')),
   (('Can we get samples?', 'هل يمكن الحصول على عينات؟'),
-   ("Ask us with the product and size you need, and we'll tell you what we can send.", 'اسألنا عن المنتج والمقاس الذي تحتاجه، وسنخبرك بما يمكننا إرساله.')),
+   ('Tell us the product and size you need, and we will let you know what we can send.', 'أخبرنا بالمنتج والمقاس الذي تحتاجه، وسنخبرك بما يمكننا إرساله.')),
   (('What should a quote request include?', 'ماذا أكتب في طلب عرض السعر؟'),
-   ('Product, size, quantity, delivery city or port, and any documents your buyer or tender requires.', 'المنتج والمقاس والكمية، ومدينة أو ميناء التسليم، وأي مستندات يطلبها عميلك أو تطلبها المناقصة.')),
+   ('Product, size, quantity, delivery city or port, and any documents your tender or customer requires.', 'المنتج والمقاس والكمية، ومدينة أو ميناء التسليم، وأي مستندات تطلبها المناقصة أو عميلك.')),
   (('Can we visit the factory?', 'هل يمكن زيارة المصنع؟'),
-   ("Yes. If you're evaluating us as a supplier, contact us to arrange a visit.", 'نعم. إن كنت تقيّمنا كمورّد، فتواصل معنا لترتيب الزيارة.')),
-  (('Why is there less on this site than on bigger manufacturers’ sites?', 'لماذا يحتوي هذا الموقع على معلومات أقل من مواقع المصانع الكبرى؟'),
-   ('Because we only publish what is true today. As the factory grows, this site will grow with it.', 'لأننا لا ننشر إلا ما هو حقيقي اليوم. ومع نمو المصنع، سينمو هذا الموقع معه.')),
+   ('Yes. Contact sales to arrange a visit.', 'نعم. تواصل مع فريق المبيعات لترتيب الزيارة.')),
 ] %}
 {% block head %}
 <script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{% for q, a in faqs %}{"@type":"Question","name":{{ tt(q)|tojson }},"acceptedAnswer":{"@type":"Answer","text":{{ tt(a)|striptags|tojson }}}}{{ "," if not loop.last }}{% endfor %}]}</script>
 {% endblock %}
 {% block content %}
 
-<section class="page-hero">
-  <div class="wrap">
-    <h1 class="h-page">{{ t('Questions buyers ask us', 'أسئلة يطرحها علينا المشترون') }}</h1>
-    <p class="lead">{{ t("Straight answers, including the ones that aren't flattering.", 'إجابات مباشرة، حتى تلك التي لا تُجمّل صورتنا.') }}</p>
-  </div>
-</section>
+{{ phead('plain', t('Frequently asked questions', 'الأسئلة الشائعة')) }}
 
-<section class="section">
+<section class="sec">
   <div class="wrap">
     <div class="faq">
       {% for q, a in faqs %}
@@ -48,6 +39,4 @@
     </div>
   </div>
 </section>
-
-{{ closing('Have a question that isn’t here?', 'لديك سؤال غير موجود هنا؟', 'Ask us directly. You will get a direct answer.', 'اسألنا مباشرة، وستحصل على إجابة مباشرة.') }}
 {% endblock %}

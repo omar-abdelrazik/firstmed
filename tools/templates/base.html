@@ -10,7 +10,7 @@
 <link rel="alternate" hreflang="ar" href="{{ href_ar }}">
 <link rel="alternate" hreflang="x-default" href="{{ href_en }}">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="First Medical">
+<meta property="og:site_name" content="{{ t('First Medical', 'فيرست ميديكال') }}">
 <meta property="og:title" content="{{ self.title() }}">
 <meta property="og:description" content="{{ self.desc() }}">
 <meta property="og:url" content="{{ canonical }}">
@@ -29,11 +29,25 @@
 {% block head %}{% endblock %}
 </head>
 <body>
+<svg class="defs" aria-hidden="true" focusable="false">
+  <defs>
+    <pattern id="fm-nonwoven" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="4" fill="#F7F9F7"/>
+      <circle cx="1" cy="1" r=".7" fill="#DCE4DF"/>
+      <circle cx="3" cy="3" r=".7" fill="#DCE4DF"/>
+    </pattern>
+    <linearGradient id="fm-pad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="1" stop-color="#EBF0EC"/>
+    </linearGradient>
+  </defs>
+</svg>
 <a class="skip" href="#main">{{ t('Skip to content', 'انتقل إلى المحتوى') }}</a>
 {% include 'partials/header.html' %}
 <main id="main">
 {% block content %}{% endblock %}
 </main>
+{% block cta %}{% include 'partials/cta.html' %}{% endblock %}
 {% include 'partials/footer.html' %}
 <script src="{{ asset('js/site.js') }}?v={{ version }}" defer></script>
 </body>

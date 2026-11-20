@@ -27,14 +27,16 @@ python3 tools/build.py
 
 Commit the generated pages together with the template change.
 
-## Publish (GitHub Pages)
+## Publish
 
-Go to Settings → Pages → Deploy from a branch, then choose `main` and `/ (root)`.
+The live site is deployed from `main` (Vercel). Pushing to `main` updates it.
 Canonical links, hreflang and the sitemap use `SITE_URL` in `tools/site_data.py` (currently `https://www.1st-medical.com`). Change it if the site lives elsewhere, then rebuild.
 
-## The honesty rules (they apply to every edit)
+## Content rules (they apply to every edit)
 
-1. Only publish numbers we can prove. Goals are shown as goals: outlined numbers plus a "Target" tag.
+1. Only publish numbers we can prove. Write goals as targets ("targeted for 2027").
 2. No certificate badges. Documents are sent for the specific product and market.
 3. If a detail isn't confirmed, write "on request". Don't guess it.
-4. New claims go to `docs/to-confirm.md` first, and onto the site only once they're confirmed.
+4. Don't write about the website itself or about our own honesty, and don't publish internal plans as weaknesses.
+5. Each language page is written entirely in its own language. Never put a translation next to a title.
+6. Arabic sizes follow normal right-to-left order (write «10 × 18 سم»; don't force it left-to-right).
