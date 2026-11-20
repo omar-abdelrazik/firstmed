@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+{% from 'partials/macros.html' import icon, closing, ordering, product_links with context %}
+{% block title %}{{ t('For government, NGOs and emergency programmes | First Medical', 'للجهات الحكومية والمنظمات الأهلية وبرامج الطوارئ | فيرست ميديكال') }}{% endblock %}
+{% block desc %}{{ t('A local manufacturer for public healthcare buyers, NGOs and emergency programmes: tender documents prepared per tender, fair pricing and straight answers on stock.', 'مصنع محلي لجهات الرعاية الصحية الحكومية والمنظمات الأهلية وبرامج الطوارئ: مستندات تُجهَّز لكل مناقصة، وأسعار عادلة، وإجابات واضحة عن المخزون.') }}{% endblock %}
+{% block content %}
+
+<section class="page-hero">
+  <div class="wrap">
+    <ol class="crumbs"><li><a href="{{ link('services/index.html') }}">{{ t('Our services', 'خدماتنا') }}</a></li><li>{{ t('For government', 'للجهات الحكومية') }}</li></ol>
+    <h1 class="h-page">{{ t('For government and public programmes', 'للجهات الحكومية والبرامج العامة') }}</h1>
+    <p class="lead">{{ t("Public buyers need paperwork done right and a supplier who doesn't overcommit. We're a local manufacturer, and we'll be straight with you about what we can deliver.", 'المشتري الحكومي يحتاج مستندات سليمة، ومورّدًا لا يَعِد بما لا يستطيع. نحن مصنع محلي، وسنكون واضحين معك فيما نستطيع توريده.') }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap segments">
+    <div class="segment" id="government-healthcare">
+      <h2>{{ t('Government healthcare', 'الرعاية الصحية الحكومية') }}</h2>
+      <div class="prose"><p>{{ t("Send us the tender or the specification. We'll prepare the documents it asks for, and tell you early, not on submission day, if there's anything we can't meet.", 'أرسل لنا كراسة الشروط أو المواصفات، وسنجهّز المستندات المطلوبة، ونخبرك مبكرًا، لا في يوم التقديم، إن كان هناك بند لا نستطيع الوفاء به.') }}</p></div>
+    </div>
+    <div class="segment" id="ngos">
+      <h2>{{ t('NGOs', 'المنظمات الأهلية') }}</h2>
+      <div class="prose"><p>{{ t('For humanitarian and community health programmes, we price fairly and plan supply around your distribution schedule.', 'لبرامج الإغاثة والصحة المجتمعية نقدّم أسعارًا عادلة، ونخطط التوريد حول جدول التوزيع لديكم.') }}</p></div>
+    </div>
+    <div class="segment" id="emergency">
+      <h2>{{ t('Emergency response', 'الاستجابة للطوارئ') }}</h2>
+      <div class="prose"><p>{{ t("When time matters, you'll get a straight answer: what we have in stock, how much, and how soon it can be delivered.", 'حين يكون الوقت حاسمًا ستحصل على إجابة واضحة: ما الموجود في المخزن، وكم كميته، ومتى يمكن تسليمه.') }}</p></div>
+    </div>
+    <div class="segment">
+      <h2>{{ t('Why local matters', 'ميزة المصنع المحلي') }}</h2>
+      <div class="prose"><p>{{ t('Made in Egypt means a shorter supply line and a supplier you can visit and hold to account.', 'التصنيع في مصر يعني سلسلة توريد أقصر، ومورّدًا يمكنك زيارته ومحاسبته.') }}</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface section--rule" aria-labelledby="supply-title">
+  <div class="wrap">
+    <div class="section-head"><h2 class="h-section" id="supply-title">{{ t('What we can supply', 'ما نستطيع توريده') }}</h2></div>
+    {{ product_links(['right-pro', 'pads', 'gauze', 'eye-pad', 'nonwoven-rolls']) }}
+  </div>
+</section>
+
+<section class="section" aria-labelledby="order-title">
+  <div class="wrap">
+    <div class="section-head"><h2 class="h-section" id="order-title">{{ t('How ordering works', 'كيف يتم الطلب') }}</h2></div>
+    {{ ordering() }}
+  </div>
+</section>
+
+{{ closing('Send us the tender.', 'أرسل لنا كراسة الشروط.', "We'll tell you what we can supply, and what we can't, before the deadline.", 'وسنخبرك بما نستطيع توريده وما لا نستطيع، قبل الموعد النهائي.') }}
+{% endblock %}

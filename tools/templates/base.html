@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="{{ lang }}" dir="{{ dir }}" data-theme="light">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}{% endblock %}</title>
+<meta name="description" content="{% block desc %}{% endblock %}">
+<link rel="canonical" href="{{ canonical }}">
+<link rel="alternate" hreflang="en" href="{{ href_en }}">
+<link rel="alternate" hreflang="ar" href="{{ href_ar }}">
+<link rel="alternate" hreflang="x-default" href="{{ href_en }}">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="First Medical">
+<meta property="og:title" content="{{ self.title() }}">
+<meta property="og:description" content="{{ self.desc() }}">
+<meta property="og:url" content="{{ canonical }}">
+<meta property="og:locale" content="{{ 'ar_EG' if lang == 'ar' else 'en_US' }}">
+<meta property="og:image" content="{{ SITE_URL }}/assets/img/brand/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#061816">
+<link rel="icon" type="image/png" sizes="192x192" href="{{ asset('img/brand/favicon.png') }}">
+<link rel="apple-touch-icon" href="{{ asset('img/brand/favicon.png') }}">
+<link rel="preload" href="{{ asset('fonts/alexandria-' ~ ('arabic' if lang == 'ar' else 'latin') ~ '-600-normal.woff2') }}" as="font" type="font/woff2" crossorigin>
+<link rel="stylesheet" href="{{ asset('css/fonts.css') }}">
+<link rel="stylesheet" href="{{ asset('css/site.css') }}?v={{ version }}">
+<script>(function(){try{var t=localStorage.getItem("fm-theme");if(!t)t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t)}catch(e){}})();</script>
+{% block head %}{% endblock %}
+</head>
+<body>
+<a class="skip" href="#main">{{ t('Skip to content', 'انتقل إلى المحتوى') }}</a>
+{% include 'partials/header.html' %}
+<main id="main">
+{% block content %}{% endblock %}
+</main>
+{% include 'partials/footer.html' %}
+<script src="{{ asset('js/site.js') }}?v={{ version }}" defer></script>
+</body>
+</html>

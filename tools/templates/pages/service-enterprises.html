@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% from 'partials/macros.html' import icon, closing, ordering, product_links with context %}
+{% block title %}{{ t('For hospitals, clinics and pharmacies | First Medical', 'للمستشفيات والعيادات والصيدليات | فيرست ميديكال') }}{% endblock %}
+{% block desc %}{{ t('Right Pro adhesive dressings for hospitals, clinics and pharmacies: five sizes from 6 × 8 to 10 × 35 cm, packs of 20 and 75, Arabic and English labelling.', 'لاصقات رايت برو للمستشفيات والعيادات والصيدليات: خمسة مقاسات من 6 × 8 حتى 10 × 35 سم، وعبوات 20 و75 قطعة، وبيانات بالعربية والإنجليزية.') }}{% endblock %}
+{% block content %}
+
+<section class="page-hero">
+  <div class="wrap">
+    <ol class="crumbs"><li><a href="{{ link('services/index.html') }}">{{ t('Our services', 'خدماتنا') }}</a></li><li>{{ t('For enterprises', 'للمؤسسات الصحية') }}</li></ol>
+    <h1 class="h-page">{{ t('For hospitals, clinics and pharmacies', 'للمستشفيات والعيادات والصيدليات') }}</h1>
+    <p class="lead">{{ t("You need dressings that do their job, arrive when agreed and fit your budget. Here's what we can offer today, and how to order.", 'تحتاج لاصقات تؤدي عملها، وتصل في موعدها، وتناسب ميزانيتك. هذا ما نستطيع تقديمه اليوم، وهذه طريقة الطلب.') }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap segments">
+    <div class="segment" id="hospitals">
+      <h2>{{ t('Hospitals', 'المستشفيات') }}</h2>
+      <div class="prose"><p>{{ t("Right Pro adhesive dressings are used for post-operative wounds and everyday wound care on the wards, in five sizes from 6 × 8 to 10 × 35 cm. Absorbent pads and gauze are available alongside. Tell us your monthly usage and we'll quote against it.", 'تُستخدم لاصقات رايت برو لجروح ما بعد العمليات وللعناية اليومية بالجروح في الأقسام، بخمسة مقاسات من 6 × 8 حتى 10 × 35 سم، ومعها الوسادات الماصّة والشاش. أخبرنا باستهلاكك الشهري، وسنقدّم عرض السعر على أساسه.') }}</p></div>
+    </div>
+    <div class="segment" id="clinics">
+      <h2>{{ t('Clinics', 'العيادات') }}</h2>
+      <div class="prose"><p>{{ t('Packs of 20, or 75 for the 6 × 8 cm size, suit outpatient and primary care, where stock moves slowly and storage space is limited.', 'عبوات الـ20 قطعة، أو الـ75 قطعة لمقاس 6 × 8 سم، تناسب العيادات الخارجية والرعاية الأولية، حيث الاستهلاك أبطأ ومساحة التخزين محدودة.') }}</p></div>
+    </div>
+    <div class="segment" id="pharmacies">
+      <h2>{{ t('Pharmacies', 'الصيدليات') }}</h2>
+      <div class="prose"><p>{{ t('Right Pro cartons are made for the shelf: Arabic and English labelling, the size on the front, and production and expiry dates on every pouch.', 'كراتين رايت برو مصممة للرف: بيانات بالعربية والإنجليزية، والمقاس على الواجهة، وتاريخ الإنتاج والانتهاء على كل كيس.') }}</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface section--rule" aria-labelledby="supply-title">
+  <div class="wrap">
+    <div class="section-head"><h2 class="h-section" id="supply-title">{{ t('What we can supply', 'ما نستطيع توريده') }}</h2></div>
+    {{ product_links(['right-pro', 'pads', 'gauze', 'eye-pad']) }}
+  </div>
+</section>
+
+<section class="section" aria-labelledby="order-title">
+  <div class="wrap">
+    <div class="section-head"><h2 class="h-section" id="order-title">{{ t('How ordering works', 'كيف يتم الطلب') }}</h2></div>
+    {{ ordering() }}
+  </div>
+</section>
+
+{{ closing('Tell us your monthly usage.', 'أخبرنا باستهلاكك الشهري.', "We'll quote against it, with lead times you can plan around.", 'وسنقدّم عرض السعر على أساسه، بمواعيد توريد تستطيع الاعتماد عليها.') }}
+{% endblock %}

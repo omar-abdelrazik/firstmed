@@ -1,0 +1,44 @@
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <img src="{{ asset('img/brand/logo-dark.png') }}" width="720" height="356" alt="1st MED" loading="lazy">
+        <p>{{ t('Medical consumables, made in Tala, Menoufia, Egypt.', 'مستلزمات طبية، تُصنع في تلا بمحافظة المنوفية، مصر.') }}</p>
+      </div>
+      <div>
+        <h2>{{ t('Products', 'المنتجات') }}</h2>
+        <ul>
+          {% for c in CATEGORIES %}<li><a href="{{ link('products.html') }}#{{ c.id }}">{{ tt(c.name) }}</a></li>{% endfor %}
+        </ul>
+      </div>
+      <div>
+        <h2>{{ t('Services', 'خدماتنا') }}</h2>
+        <ul>
+          {% for g in SERVICES %}<li><a href="{{ link(g.slug) }}">{{ tt(g.title) }}</a></li>{% endfor %}
+          <li><a href="{{ link('services/oem.html') }}">{{ t('OEM and private label', 'التصنيع بعلامتك التجارية') }}</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>{{ t('Company', 'الشركة') }}</h2>
+        <ul>
+          <li><a href="{{ link('about.html') }}">{{ t('About us', 'من نحن') }}</a></li>
+          <li><a href="{{ link('manufacturing.html') }}">{{ t('Manufacturing', 'التصنيع') }}</a></li>
+          <li><a href="{{ link('faq.html') }}">{{ t('FAQ', 'أسئلة شائعة') }}</a></li>
+          <li><a href="{{ link('contact.html') }}">{{ t('Request a quote', 'اطلب عرض سعر') }}</a></li>
+        </ul>
+      </div>
+      <div>
+        <h2>{{ t('Contact', 'تواصل معنا') }}</h2>
+        <ul>
+          <li><a href="https://wa.me/{{ C.sales_wa }}" target="_blank" rel="noopener"><span class="ltr">{{ C.sales_phone }}</span></a></li>
+          <li><a href="mailto:{{ C.sales_email }}">{{ C.sales_email }}</a></li>
+          <li><a href="{{ C.maps }}" target="_blank" rel="noopener">{{ t('Tala, Menoufia, Egypt', 'تلا، المنوفية، مصر') }}</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© <span data-year>2026</span> First Medical. {{ t('Every claim on this site is one we can back up.', 'كل ما نقوله في هذا الموقع نستطيع إثباته.') }}</span>
+      <a href="{{ alt_link }}" hreflang="{{ other }}" lang="{{ other }}">{{ 'English' if lang == 'ar' else 'العربية' }}</a>
+    </div>
+  </div>
+</footer>

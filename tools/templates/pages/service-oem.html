@@ -1,0 +1,63 @@
+{% extends 'base.html' %}
+{% from 'partials/macros.html' import icon, closing with context %}
+{% block title %}{{ t('OEM and private label | First Medical', 'التصنيع بعلامتك التجارية | فيرست ميديكال') }}{% endblock %}
+{% block desc %}{{ t('Adhesive wound dressings made in Egypt under your brand: your pouch, your carton, your pack count. Minimums, documents and timelines confirmed in writing.', 'لاصقات جروح تُصنع في مصر باسم علامتك التجارية: كيسك وكرتونتك وعدد القطع الذي تريده، مع تأكيد الحد الأدنى والمستندات والمواعيد كتابةً.') }}{% endblock %}
+{% block content %}
+
+<section class="page-hero">
+  <div class="wrap">
+    <ol class="crumbs"><li><a href="{{ link('services/index.html') }}">{{ t('Our services', 'خدماتنا') }}</a></li><li>{{ t('OEM and private label', 'التصنيع بعلامتك التجارية') }}</li></ol>
+    <h1 class="h-page">{{ t('Your brand, made in our factory.', 'علامتك التجارية، من مصنعنا.') }}</h1>
+    <p class="lead">{{ t('Right Pro already comes in its own printed pouches and cartons. Your product can too.', 'رايت برو يأتي بالفعل في أكياس وكراتين مطبوعة خاصة به، ومنتجك يمكن أن يأتي كذلك.') }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap split">
+    <div class="stage" style="aspect-ratio:1">{{ img('img/products/right-pro-10x12.webp', t('Right Pro carton, an example of our own printed packaging', 'كرتونة رايت برو، مثال على عبواتنا المطبوعة')) }}</div>
+    <div>
+      <h2 class="h-section">{{ t('What you can customise', 'ما يمكن تخصيصه') }}</h2>
+      <ul class="checklist" style="margin-block-start:28px">
+        <li>{{ icon('check') }}<span>{{ t('Your brand and artwork on the pouch.', 'علامتك وتصميمك على الكيس.') }}</span></li>
+        <li>{{ icon('check') }}<span>{{ t('Your carton design, and the languages on it.', 'تصميم الكرتونة، واللغات المكتوبة عليها.') }}</span></li>
+        <li>{{ icon('check') }}<span>{{ t('The number of pieces per carton.', 'عدد القطع في الكرتونة.') }}</span></li>
+        <li>{{ icon('check') }}<span>{{ t('Sizes within our range, 6 × 8 to 10 × 35 cm. Ask about others.', 'المقاسات ضمن تشكيلتنا من 6 × 8 حتى 10 × 35 سم، واسأل عن غيرها.') }}</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface section--rule" aria-labelledby="clear-title">
+  <div class="wrap split">
+    <h2 class="h-section" id="clear-title">{{ t("What we'll be clear about from the start", 'ما سنكون واضحين فيه من البداية') }}</h2>
+    <div class="segments">
+      <div class="segment" style="grid-template-columns:1fr">
+        <h3>{{ t('Minimum quantities', 'الحد الأدنى للكمية') }}</h3>
+        <div class="prose"><p>{{ t("Set per product and packaging. We quote them; we don't guess them.", 'يُحدَّد لكل منتج وتغليف، ونذكره في عرض السعر، لا نخمّنه.') }}</p></div>
+      </div>
+      <div class="segment" style="grid-template-columns:1fr">
+        <h3>{{ t('Documents for your market', 'مستندات سوقك') }}</h3>
+        <div class="prose"><p>{{ t("We'll tell you exactly which documents we can provide, and which ones your market will still need.", 'نخبرك بالضبط بالمستندات التي نستطيع توفيرها، وبما سيظل سوقك يحتاجه بعدها.') }}</p></div>
+      </div>
+      <div class="segment" style="grid-template-columns:1fr">
+        <h3>{{ t('Timelines', 'المواعيد') }}</h3>
+        <div class="prose"><p>{{ t('Artwork approval and production dates are confirmed in writing.', 'موعد اعتماد التصميم وموعد الإنتاج نؤكدهما كتابةً.') }}</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="run-title">
+  <div class="wrap">
+    <div class="section-head"><h2 class="h-section" id="run-title">{{ t('How a private-label order runs', 'كيف يسير طلب العلامة الخاصة') }}</h2></div>
+    <ol class="steps" style="--n:4">
+      <li><h3>{{ t('Brief', 'الطلب') }}</h3><p>{{ t('Product, size, quantity, target markets and your artwork.', 'المنتج والمقاس والكمية والأسواق المستهدفة، وتصميمك.') }}</p></li>
+      <li><h3>{{ t('Quote and proof', 'عرض السعر والبروفة') }}</h3><p>{{ t('Price, minimums and a print proof for your approval.', 'السعر والحد الأدنى، وبروفة طباعة لاعتمادها.') }}</p></li>
+      <li><h3>{{ t('Production', 'الإنتاج') }}</h3><p>{{ t('We make, pack and label under your brand.', 'نصنّع ونعبّئ ونضع البيانات باسم علامتك.') }}</p></li>
+      <li><h3>{{ t('Delivery', 'التسليم') }}</h3><p>{{ t('As agreed in the quote.', 'كما اتفقنا في عرض السعر.') }}</p></li>
+    </ol>
+  </div>
+</section>
+
+{{ closing('Send us your brief.', 'أرسل لنا طلبك.', 'Product, size, quantity and markets are enough to start.', 'المنتج والمقاس والكمية والأسواق تكفي للبدء.') }}
+{% endblock %}

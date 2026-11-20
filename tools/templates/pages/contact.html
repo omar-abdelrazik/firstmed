@@ -1,0 +1,99 @@
+{% extends 'base.html' %}
+{% from 'partials/macros.html' import icon with context %}
+{% block title %}{{ t('Request a quote | First Medical', 'اطلب عرض سعر | فيرست ميديكال') }}{% endblock %}
+{% block desc %}{{ t('Request a quote from First Medical by WhatsApp or email. Sales and export contacts, and our factory location in Tala, Menoufia, Egypt.', 'اطلب عرض سعر من فيرست ميديكال عبر واتساب أو البريد الإلكتروني. أرقام المبيعات والتصدير، وموقع المصنع في تلا بالمنوفية.') }}{% endblock %}
+{% block content %}
+
+<section class="page-hero">
+  <div class="wrap">
+    <h1 class="h-page">{{ t('Request a quote', 'اطلب عرض سعر') }}</h1>
+    <p class="lead">{{ t('Fill this in, then send it on WhatsApp or by email. Your app opens with the message already written, and nothing is stored on this website.', 'املأ البيانات ثم أرسلها عبر واتساب أو البريد الإلكتروني. سيفتح التطبيق ورسالتك مكتوبة، ولا يُحفظ أي شيء على هذا الموقع.') }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap contact-grid">
+    <form class="form" data-quote-form novalidate
+          data-wa="{{ C.sales_wa }}" data-email="{{ C.sales_email }}"
+          data-heading="{{ t('Quote request for First Medical', 'طلب عرض سعر من فيرست ميديكال') }}"
+          data-err-name="{{ t('Please add your name.', 'من فضلك اكتب اسمك.') }}"
+          data-err-need="{{ t('Choose a product, or tell us in the notes what you need.', 'اختر منتجًا، أو اكتب في الملاحظات ما تحتاجه.') }}">
+      <div class="form-row">
+        <div class="field">
+          <label for="f-name">{{ t('Your name', 'الاسم') }}</label>
+          <input id="f-name" name="name" autocomplete="name" data-label="{{ t('Name', 'الاسم') }}">
+        </div>
+        <div class="field">
+          <label for="f-company">{{ t('Company or organisation', 'الشركة أو الجهة') }}</label>
+          <input id="f-company" name="company" autocomplete="organization" data-label="{{ t('Company', 'الجهة') }}">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="f-type">{{ t('You are buying for', 'نوع الجهة') }}</label>
+          <select id="f-type" name="type" data-label="{{ t('Buying for', 'نوع الجهة') }}">
+            <option value="">{{ t('Choose one', 'اختر') }}</option>
+            <option>{{ t('A hospital or clinic', 'مستشفى أو عيادة') }}</option>
+            <option>{{ t('A pharmacy', 'صيدلية') }}</option>
+            <option>{{ t('Distribution', 'التوزيع') }}</option>
+            <option>{{ t('A government body or tender', 'جهة حكومية أو مناقصة') }}</option>
+            <option>{{ t('An NGO or programme', 'منظمة أهلية أو برنامج') }}</option>
+            <option>{{ t('Our own brand (private label)', 'علامتنا التجارية الخاصة') }}</option>
+            <option>{{ t('Something else', 'غير ذلك') }}</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-place">{{ t('Country and city', 'الدولة والمدينة') }}</label>
+          <input id="f-place" name="place" autocomplete="address-level2" data-label="{{ t('Delivery to', 'التسليم في') }}">
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="field">
+          <label for="f-product">{{ t('Product', 'المنتج') }}</label>
+          <select id="f-product" name="product" data-label="{{ t('Product', 'المنتج') }}">
+            <option value="">{{ t('Choose a product', 'اختر المنتج') }}</option>
+            {% for p in PRODUCTS %}<option value="{{ p.id }}">{{ tt(p.name) }}</option>{% endfor %}
+            <option value="other">{{ t('Not sure yet', 'لم أحدد بعد') }}</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-size">{{ t('Size', 'المقاس') }} <small>{{ t('if you know it', 'إن كنت تعرفه') }}</small></label>
+          <input id="f-size" name="size" data-label="{{ t('Size', 'المقاس') }}" placeholder="{{ t('e.g. 10 × 18 cm', 'مثال: 10 × 18 سم') }}">
+        </div>
+      </div>
+      <div class="field">
+        <label for="f-qty">{{ t('Quantity', 'الكمية') }}</label>
+        <input id="f-qty" name="qty" data-label="{{ t('Quantity', 'الكمية') }}" placeholder="{{ t('e.g. 200 cartons a month', 'مثال: 200 كرتونة شهريًا') }}">
+      </div>
+      <div class="field">
+        <label for="f-notes">{{ t('Anything else', 'ملاحظات') }} <small>{{ t('documents you need, deadlines, packaging', 'المستندات المطلوبة، المواعيد، التغليف') }}</small></label>
+        <textarea id="f-notes" name="notes" data-label="{{ t('Notes', 'ملاحظات') }}"></textarea>
+      </div>
+      <p class="form-msg" data-form-msg role="alert"></p>
+      <div class="actions">
+        <button class="btn btn--primary" type="button" data-send="whatsapp">{{ icon('whatsapp') }} {{ t('Send on WhatsApp', 'أرسل عبر واتساب') }}</button>
+        <button class="btn btn--line" type="button" data-send="email">{{ t('Send by email', 'أرسل بالبريد الإلكتروني') }}</button>
+      </div>
+      <p class="form-note">{{ t('WhatsApp opens in a new tab. Email opens your mail app.', 'يفتح واتساب في نافذة جديدة، ويفتح البريد تطبيق البريد لديك.') }}</p>
+    </form>
+
+    <aside class="direct" aria-label="{{ t('Direct contacts', 'التواصل المباشر') }}">
+      <div>
+        <h2>{{ t('Sales', 'المبيعات') }}</h2>
+        <a href="https://wa.me/{{ C.sales_wa }}" target="_blank" rel="noopener"><span class="ltr">{{ C.sales_phone }}</span></a>
+        <a href="mailto:{{ C.sales_email }}">{{ C.sales_email }}</a>
+      </div>
+      <div>
+        <h2>{{ t('Export', 'التصدير') }}</h2>
+        <a href="https://wa.me/{{ C.export_wa }}" target="_blank" rel="noopener"><span class="ltr">{{ C.export_phone }}</span></a>
+        <a href="mailto:{{ C.export_email }}">{{ C.export_email }}</a>
+      </div>
+      <div>
+        <h2>{{ t('Factory', 'المصنع') }}</h2>
+        <span>{{ t('Tala, Menoufia, Egypt', 'تلا، المنوفية، مصر') }}</span>
+        <a href="{{ C.maps }}" target="_blank" rel="noopener">{{ t('Open in Google Maps', 'افتح الموقع في خرائط Google') }}</a>
+      </div>
+    </aside>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+{% from 'partials/macros.html' import icon, closing, ordering with context %}
+{% block title %}{{ t('Our services | First Medical', 'خدماتنا | فيرست ميديكال') }}{% endblock %}
+{% block desc %}{{ t('How First Medical works with hospitals, clinics and pharmacies; government buyers, NGOs and emergency programmes; and distributors, export partners and private-label brands.', 'كيف تعمل فيرست ميديكال مع المستشفيات والعيادات والصيدليات، ومع الجهات الحكومية والمنظمات الأهلية وبرامج الطوارئ، ومع الموزعين وشركاء التصدير والعلامات الخاصة.') }}{% endblock %}
+{% block content %}
+
+<section class="page-hero">
+  <div class="wrap">
+    <h1 class="h-page">{{ t('Our services', 'خدماتنا') }}</h1>
+    <p class="lead">{{ t('We supply three kinds of buyers, and each needs something different from a factory. Choose yours.', 'نورّد لثلاث فئات من المشترين، ولكل فئة احتياجات مختلفة من المصنع. اختر فئتك.') }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap hub">
+    {% for g in SERVICES %}
+    <a class="hub-card" href="{{ link(g.slug) }}">
+      <h2>{{ tt(g.title) }}</h2>
+      <p>{{ tt(g.lead) }}</p>
+      <ul>{% for it in g['items'] %}<li>{{ tt(it.name) }}</li>{% endfor %}</ul>
+    </a>
+    {% endfor %}
+    <a class="hub-card" href="{{ link('services/oem.html') }}">
+      <h2>{{ t('OEM and private label', 'التصنيع بعلامتك التجارية') }}</h2>
+      <p>{{ t('Your brand on dressings made in our factory: pouch, carton and pack count.', 'علامتك التجارية على لاصقات تُصنع في مصنعنا: الكيس والكرتونة وعدد القطع.') }}</p>
+      <ul><li>{{ t('What you can customise', 'ما يمكن تخصيصه') }}</li><li>{{ t('How a private-label order runs', 'كيف يسير طلب العلامة الخاصة') }}</li></ul>
+    </a>
+  </div>
+</section>
+
+<section class="section section--surface section--rule" aria-labelledby="order-title">
+  <div class="wrap">
+    <div class="section-head"><h2 class="h-section" id="order-title">{{ t('How ordering works', 'كيف يتم الطلب') }}</h2></div>
+    {{ ordering() }}
+  </div>
+</section>
+
+{{ closing('Not sure which applies to you?', 'لست متأكدًا أي فئة تناسبك؟', "Tell us what you're buying for. We'll take it from there.", 'أخبرنا لمن تشتري، ونتولى نحن الباقي.') }}
+{% endblock %}

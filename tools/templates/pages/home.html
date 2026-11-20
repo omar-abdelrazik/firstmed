@@ -1,0 +1,149 @@
+{% extends 'base.html' %}
+{% from 'partials/macros.html' import icon, closing with context %}
+{% block title %}{{ t('First Medical | Medical dressings made in Egypt', 'فيرست ميديكال | مستلزمات طبية مصنوعة في مصر') }}{% endblock %}
+{% block desc %}{{ t('First Medical makes adhesive wound dressings, eye pads and non-woven materials in Tala, Menoufia, Egypt. Founded in 2022 by partners with 30+ years in the medical-supplies industry.', 'فيرست ميديكال مصنع لاصقات جروح وأغطية عين وخامات غير منسوجة في تلا بالمنوفية. تأسس عام 2022 على يد شركاء بخبرة تزيد على 30 عامًا في صناعة المستلزمات الطبية.') }}{% endblock %}
+{% block head %}
+<link rel="preload" as="image" href="{{ asset('img/hero/still-life.webp') }}" media="(min-width: 861px)">
+<script type="application/ld+json">{{ org_jsonld }}</script>
+{% endblock %}
+{% block content %}
+
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero-grid">
+    <div class="hero-media">
+      <picture>
+        <source media="(max-width: 860px)" srcset="{{ asset('img/hero/still-life-mobile.webp') }}" width="900" height="739">
+        <img src="{{ asset('img/hero/still-life.webp') }}" width="1817" height="866" fetchpriority="high"
+             alt="{{ t('Right Pro dressing cartons with an adhesive dressing and an eye pad', 'كراتين لاصقات رايت برو، ومعها لاصق جروح وغطاء عين') }}">
+      </picture>
+    </div>
+    <div class="hero-copy">
+      <h1 id="hero-title">{{ t('Making quality<br> accessible.', 'جودة طبية<br> في متناول الجميع.') }}</h1>
+      <p class="hero-lead">{{ t('Adhesive wound dressings, eye pads and non-woven materials, made in Egypt for hospitals, pharmacies, distributors and public buyers.', 'لاصقات جروح وأغطية عين وخامات غير منسوجة، نصنعها في مصر للمستشفيات والصيدليات والموزعين والجهات الحكومية.') }}</p>
+      <div class="actions on-dark">
+        <a class="btn btn--primary" href="{{ link('contact.html') }}">{{ t('Request a quote', 'اطلب عرض سعر') }}</a>
+        <a class="btn btn--line" href="{{ link('products.html') }}">{{ t('See the products', 'تصفّح المنتجات') }}</a>
+      </div>
+    </div>
+    <ul class="hero-cats">
+      <li><a href="{{ link('products.html') }}#wound">{{ icon('dressing') }}<span>{{ t('Wound care', 'العناية بالجروح') }}</span></a></li>
+      <li><a href="{{ link('products.html') }}#eye">{{ icon('eye') }}<span>{{ t('Eye care', 'العناية بالعين') }}</span></a></li>
+      <li><a href="{{ link('products.html') }}#nonwoven">{{ icon('roll') }}<span>{{ t('Non-woven materials', 'الخامات غير المنسوجة') }}</span></a></li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="stand-title">
+  <div class="wrap">
+    <div class="ledger-grid">
+      <div class="ledger-intro">
+        <h2 class="h-section" id="stand-title">{{ t('Where we stand today', 'أين نقف اليوم') }}</h2>
+        <p class="lead">{{ t("We would rather earn your trust with small numbers that are true than with big ones we can't prove.", 'نفضّل أن نكسب ثقتك بأرقام صغيرة لكنها حقيقية، على أرقام كبيرة لا نستطيع إثباتها.') }}</p>
+      </div>
+      <dl class="ledger">
+        <div class="ledger-row">
+          <dt class="nums">2022</dt>
+          <dd>{{ t('Our factory opens in Tala, Menoufia.', 'افتتاح مصنعنا في تلا بمحافظة المنوفية.') }}</dd>
+        </div>
+        <div class="ledger-row">
+          <dt class="nums"><span class="ltr">30+</span></dt>
+          <dd>{{ t('Years our partners have spent in the medical-supplies industry.', 'عامًا قضاها شركاؤنا في صناعة المستلزمات الطبية.') }}</dd>
+        </div>
+        <div class="ledger-row">
+          <dt class="nums">5</dt>
+          <dd>{{ t('Sizes in our first line, Right Pro, from 6 × 8 to 10 × 35 cm.', 'مقاسات في أول خطوطنا «رايت برو»، من 6 × 8 حتى 10 × 35 سم.') }}</dd>
+        </div>
+        <div class="ledger-row is-target">
+          <dt class="nums">2027</dt>
+          <dd>{{ t('Our target for first export markets: the Gulf and Europe.', 'هدفنا لأول أسواق التصدير: الخليج وأوروبا.') }} <span class="tag">{{ t('Target', 'هدف') }}</span>
+            <small>{{ t('Outlined numbers are goals. Solid numbers are facts.', 'الرقم المفرّغ هدف، والرقم المصمت حقيقة.') }}</small></dd>
+        </div>
+      </dl>
+    </div>
+    <p class="promise">{{ t("No invented client logos. No certificates we don't hold. No markets we haven't shipped to.", 'لا شعارات عملاء مُختلَقة، ولا شهادات لا نملكها، ولا أسواق لم نصدّر إليها.') }}</p>
+  </div>
+</section>
+
+<section class="section section--surface" aria-labelledby="make-title">
+  <div class="wrap">
+    <div class="section-head section-head--split">
+      <h2 class="h-section" id="make-title">{{ t('What we make today', 'ما نصنعه اليوم') }}</h2>
+      <p class="lead">{{ t("Our first line is Right Pro: non-woven adhesive dressings with an absorbent pad that doesn't stick to the wound. Alongside it, eye pads, absorbent pads, gauze and non-woven rolls.", 'أول خطوطنا هو «رايت برو»: لاصقات جروح من القماش غير المنسوج، بوسادة ماصّة لا تلتصق بالجرح. وإلى جانبها أغطية العين والوسادات الماصّة والشاش ورولات القماش غير المنسوج.') }}</p>
+      <a class="text-link" href="{{ link('products.html') }}">{{ t('All products and sizes', 'كل المنتجات والمقاسات') }}</a>
+    </div>
+    <div class="shelf">
+      <a class="tile tile--feature" href="{{ link('products.html') }}#right-pro">
+        <div class="tile-media">
+          <div class="stack" aria-hidden="true">
+            {{ img('img/products/right-pro-10x35.webp', '', 's1') }}
+            {{ img('img/products/right-pro-10x18.webp', '', 's2') }}
+            {{ img('img/products/right-pro-6x8.webp', '', 's3') }}
+          </div>
+        </div>
+        <div class="tile-body"><strong>{{ t('Right Pro adhesive dressings', 'لاصقات جروح رايت برو') }}</strong><span>{{ t('Five sizes, packs of 20 and 75', 'خمسة مقاسات، عبوات 20 و75 قطعة') }}</span></div>
+      </a>
+      {% for p in PRODUCTS if not p.featured %}
+      <a class="tile tile--sm" href="{{ link('products.html') }}#{{ p.id }}">
+        <div class="tile-media">{{ img(p.img, tt(p.name)) }}</div>
+        <div class="tile-body"><strong>{{ tt(p.name) }}</strong><span>{{ tt(p.short) }}</span></div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="pillars-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="h-section" id="pillars-title">{{ t("What we're building toward", 'إلى أين نتجه') }}</h2>
+    </div>
+    <div class="pillars">
+      <article class="pillar">
+        <h3>{{ t('Impact', 'الأثر') }} <span class="twin" lang="{{ other }}">{{ t('الأثر', 'Impact') }}</span></h3>
+        <p>{{ t('Work that is worth something to the people who use it: dependable supplies, at a fair cost, closer to where they are needed.', 'عمل له قيمة حقيقية عند من يستخدمه: مستلزمات يُعتمد عليها، بتكلفة عادلة، وأقرب إلى من يحتاجها.') }}</p>
+      </article>
+      <article class="pillar">
+        <h3>{{ t('Accessibility', 'إتاحة الرعاية الصحية') }} <span class="twin" lang="{{ other }}">{{ t('إتاحة الرعاية الصحية', 'Accessibility') }}</span></h3>
+        <p>{{ t("Not every hospital has the same budget, and not every patient can carry the cost of care. Reliable quality shouldn't be reserved for those who pay the most.", 'ليست كل المستشفيات بالميزانية نفسها، ولا كل مريض يقدر على تكلفة علاجه. والجودة الموثوقة لا ينبغي أن تكون حكرًا على من يدفع أكثر.') }}</p>
+      </article>
+      <article class="pillar">
+        <h3>{{ t('Industrial excellence', 'التميز الصناعي') }} <span class="twin" lang="{{ other }}">{{ t('التميز الصناعي', 'Industrial excellence') }}</span></h3>
+        <p>{{ t("We're small today and don't intend to stay that way: better processes, stricter quality, new lines, until \"Made in Egypt\" is a reason to choose a product, not to discount it.", 'ما زلنا مصنعًا صغيرًا، ولا ننوي أن نبقى كذلك: عمليات أفضل، وجودة أدق، وخطوط جديدة، حتى تصبح «صُنع في مصر» سببًا لاختيار المنتج، لا لتخفيض سعره.') }}</p>
+      </article>
+      <article class="pillar">
+        <h3>{{ t('Sustainable growth', 'النمو المستدام') }} <span class="twin" lang="{{ other }}">{{ t('النمو المستدام', 'Sustainable growth') }}</span></h3>
+        <p>{{ t("Profit we reinvest in capacity, jobs and new markets. Impact that isn't built on a sound business rarely lasts.", 'أرباح نعيد استثمارها في الطاقة الإنتاجية وفرص العمل والأسواق الجديدة. فالأثر الذي لا يقوم على نموذج اقتصادي سليم نادرًا ما يستمر.') }}</p>
+      </article>
+    </div>
+    <p style="margin-block-start:32px"><a class="text-link" href="{{ link('about.html') }}#vision">{{ t('Our vision and mission', 'رؤيتنا ورسالتنا') }}</a></p>
+  </div>
+</section>
+
+<section class="band" aria-labelledby="band-title">
+  <img class="band-bg" src="{{ asset('img/hero/machine-blur.webp') }}" width="1400" height="637" alt="" loading="lazy">
+  <div class="wrap band-copy on-dark">
+    <h2 id="band-title">{{ t('From roll to sealed pouch.', 'من البكرة إلى الكيس المُغلق.') }}</h2>
+    <p>{{ t('Non-woven fabric goes in on reels. Dressings come out cut, padded, sealed and dated.', 'يدخل القماش غير المنسوج على بكرات، ويخرج لاصقًا مقصوصًا بوسادته، مغلقًا في كيسه، ومطبوعًا عليه تاريخه.') }}</p>
+    <a class="btn btn--line" href="{{ link('manufacturing.html') }}">{{ t('How we make it', 'كيف نصنعه') }}</a>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="who-title">
+  <div class="wrap">
+    <div class="section-head">
+      <h2 class="h-section" id="who-title">{{ t('Who we supply', 'لمن نورّد') }}</h2>
+    </div>
+    <div class="audiences">
+      {% for g in SERVICES %}
+      <a class="audience" href="{{ link(g.slug) }}">
+        <h3>{{ tt(g.title) }}</h3>
+        <p>{{ tt(g.lead) }}</p>
+        <ul>{% for it in g['items'] %}<li>{{ tt(it.name) }}</li>{% endfor %}</ul>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{{ closing("Tell us what you need. We'll tell you honestly what we can do.", 'أخبرنا بما تحتاجه، وسنقول لك بصراحة ما نستطيع تقديمه.', 'Quotes come with price, lead time and the documents available for that product.', 'يصلك عرض السعر شاملًا السعر وموعد التوريد والمستندات المتاحة للمنتج.') }}
+{% endblock %}

@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% from 'partials/macros.html' import icon, closing, ordering, product_links with context %}
+{% block title %}{{ t('For distributors and export partners | First Medical', 'للموزعين وشركاء التصدير | فيرست ميديكال') }}{% endblock %}
+{% block desc %}{{ t('Distribute Right Pro and the rest of our range with volume pricing and confirmed lead times. Export to the Gulf and Europe is our 2027 target. Talk to us early.', 'وزّع رايت برو وباقي منتجاتنا بأسعار للكميات ومواعيد توريد مؤكدة. التصدير إلى الخليج وأوروبا هدفنا في 2027، فتواصل معنا مبكرًا.') }}{% endblock %}
+{% block content %}
+
+<section class="page-hero">
+  <div class="wrap">
+    <ol class="crumbs"><li><a href="{{ link('services/index.html') }}">{{ t('Our services', 'خدماتنا') }}</a></li><li>{{ t('For partners', 'للشركاء') }}</li></ol>
+    <h1 class="h-page">{{ t('For distributors and export partners', 'للموزعين وشركاء التصدير') }}</h1>
+    <p class="lead">{{ t('We are looking for partners who want to grow with a young Egyptian manufacturer, on clear terms.', 'نبحث عن شركاء يريدون أن ينموا مع مصنع مصري حديث، وبشروط واضحة.') }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="wrap segments">
+    <div class="segment" id="distributors">
+      <h2>{{ t('Distributors', 'الموزعون') }}</h2>
+      <div class="prose"><p>{{ t('Volume pricing on Right Pro and the rest of our range, with lead times confirmed before you order, not after.', 'أسعار للكميات على رايت برو وباقي منتجاتنا، ومواعيد توريد نؤكدها قبل الطلب، لا بعده.') }}</p></div>
+    </div>
+    <div class="segment" id="export">
+      <h2>{{ t('Export partners', 'شركاء التصدير') }}</h2>
+      <div class="prose">
+        <p>{{ t("We don't export yet. The Gulf and Europe are our targets for 2027.", 'لا نصدّر حتى الآن. الخليج وأوروبا هدفنا في 2027.') }}</p>
+        <p>{{ t("Each market needs its own approvals: in Saudi Arabia, a marketing authorization from the SFDA; in the European Union, CE marking under the Medical Device Regulation. If you distribute in those markets, talk to us now. We'd rather prepare for your market together than promise it alone.", 'لكل سوق موافقاته الخاصة: في السعودية إذن تسويق من الهيئة العامة للغذاء والدواء، وفي الاتحاد الأوروبي علامة CE وفق لائحة الأجهزة الطبية. إن كنت موزعًا في هذه الأسواق فتواصل معنا الآن؛ نفضّل أن نستعد لسوقك معًا، على أن نَعِد به وحدنا.') }}</p>
+      </div>
+    </div>
+    <div class="segment" id="oem">
+      <h2>{{ t('OEM and private label', 'التصنيع بعلامتك التجارية') }}</h2>
+      <div class="prose">
+        <p>{{ t('Your brand on dressings made in our factory: pouch, carton and pack count.', 'علامتك التجارية على لاصقات تُصنع في مصنعنا: الكيس والكرتونة وعدد القطع.') }}</p>
+        <p><a class="text-link" href="{{ link('services/oem.html') }}">{{ t('How private label works', 'كيف يعمل التصنيع بعلامتك') }}</a></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--surface section--rule" aria-labelledby="supply-title">
+  <div class="wrap">
+    <div class="section-head"><h2 class="h-section" id="supply-title">{{ t('The range today', 'تشكيلتنا اليوم') }}</h2></div>
+    {{ product_links(['right-pro', 'eye-pad', 'pads', 'gauze', 'nonwoven-rolls']) }}
+  </div>
+</section>
+
+<section class="section" aria-labelledby="order-title">
+  <div class="wrap">
+    <div class="section-head"><h2 class="h-section" id="order-title">{{ t('How ordering works', 'كيف يتم الطلب') }}</h2></div>
+    {{ ordering() }}
+  </div>
+</section>
+
+{{ closing('Distributing in Egypt, the Gulf or Europe?', 'توزّع في مصر أو الخليج أو أوروبا؟', "Let's talk early and plan it properly.", 'لنتحدث مبكرًا، ونخطط للأمر كما يجب.') }}
+{% endblock %}
