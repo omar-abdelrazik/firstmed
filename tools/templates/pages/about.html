@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 {% from 'partials/macros.html' import icon, phead with context %}
 {% block title %}{{ t('About us | First Medical', 'من نحن | فيرست ميديكال') }}{% endblock %}
-{% block desc %}{{ t('First Medical manufactures medical consumables in Tala, Menoufia, Egypt. Our vision, our mission and the four pillars behind our decisions.', 'فيرست ميديكال مصنع للمستلزمات الطبية في تلا بمحافظة المنوفية. رؤيتنا ورسالتنا، والركائز الأربع التي توجّه قراراتنا.') }}{% endblock %}
+{% block desc %}{{ t('First Medical was founded in 2022 by partners with more than 30 years in the medical-supplies industry. Our vision, our mission and the four pillars behind our decisions.', 'تأسس مصنع فيرست ميديكال عام 2022 على يد شركاء قضوا أكثر من 30 عامًا في صناعة المستلزمات الطبية. رؤيتنا ورسالتنا، والركائز الأربع التي توجّه قراراتنا.') }}{% endblock %}
 {% block content %}
 
 {{ phead('photo', t('About First Medical', 'عن فيرست ميديكال'),
-  t('We manufacture medical consumables in Tala, Menoufia, starting with Right Pro adhesive wound dressings.', 'نصنع المستلزمات الطبية في تلا بمحافظة المنوفية، وأول خطوطنا لاصقات الجروح رايت برو.'),
+  t('The factory was founded in 2022 by partners who have spent more than 30 years in the medical-supplies industry. We make medical consumables in Tala, Menoufia, starting with Right Pro adhesive wound dressings.', 'تأسس المصنع عام 2022، على يد شركاء قضوا أكثر من 30 عامًا في صناعة المستلزمات الطبية. ونصنع المستلزمات الطبية في تلا بمحافظة المنوفية، وأول خطوطنا لاصقات الجروح رايت برو.'),
   photo='img/hero/still-life.webp', pos='100% 60%') }}
 
 <section class="sec" id="vision" aria-label="{{ t('Vision and mission', 'الرؤية والرسالة') }}">
@@ -71,7 +71,7 @@
       <h2 id="where-title">{{ t('Made in Tala, Menoufia', 'صُنع في تلا بالمنوفية') }}</h2>
       <p>{{ t('Our factory is in Tala, in Menoufia governorate in the Nile Delta. Buyers are welcome to visit.', 'مصنعنا في مدينة تلا بمحافظة المنوفية في دلتا النيل، ونرحب بزيارة المشترين.') }}</p>
       <div class="actions">
-        <a class="btn btn--line" href="{{ link('manufacturing.html') }}">{{ t('How we make it', 'كيف نصنع منتجاتنا') }}</a>
+        <a class="btn btn--line" href="{{ link('manufacturing.html') }}">{{ t('Our factory', 'مصنعنا') }}</a>
         <a class="btn btn--line" href="{{ C.maps }}" target="_blank" rel="noopener">{{ icon('pin') }} {{ t('Open in Google Maps', 'افتح في خرائط جوجل') }}</a>
       </div>
     </div>

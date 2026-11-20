@@ -4,9 +4,13 @@
 {% block desc %}{{ t('How First Medical supplies hospitals, clinics and pharmacies; government buyers, NGOs and emergency programmes; distributors and export partners; and private-label brands.', 'كيف تورّد فيرست ميديكال للمستشفيات والعيادات والصيدليات، وللجهات الحكومية والمنظمات الأهلية وبرامج الطوارئ، وللموزعين وشركاء التصدير، وللعلامات التجارية الخاصة.') }}{% endblock %}
 {% block content %}
 
-{{ phead('photo', t('Our services', 'خدماتنا'),
+{{ phead('pack', t('Our services', 'خدماتنا'),
   t('We supply healthcare providers, public buyers and trade partners, and we manufacture under your brand.', 'نورّد لمقدّمي الرعاية الصحية والجهات الحكومية والشركاء التجاريين، ونصنّع باسم علامتك التجارية.'),
-  photo='img/hero/cartons-flatlay.webp', pos='100% 50%') }}
+  packs=[
+    {'src': 'img/products/right-pro-10x12.webp', 'style': 'width:44%;inset-inline-end:40%;bottom:38%'},
+    {'src': 'img/products/right-pro-6x8.webp', 'style': 'width:22%;inset-inline-end:14%;bottom:42%'},
+    {'src': 'img/products/right-pro-10x25.webp', 'style': 'width:76%;inset-inline-end:10%;bottom:9%'},
+  ]) }}
 
 <section class="sec" aria-label="{{ t('Services', 'الخدمات') }}">
   <div class="wrap tiles tiles--2">

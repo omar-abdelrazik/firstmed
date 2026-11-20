@@ -1,43 +1,12 @@
 {% extends 'base.html' %}
 {% from 'partials/macros.html' import icon, phead with context %}
 {% block title %}{{ t('Manufacturing | First Medical', 'التصنيع | فيرست ميديكال') }}{% endblock %}
-{% block desc %}{{ t('How Right Pro adhesive dressings are made at our factory in Tala, Menoufia: from reels of non-woven fabric to sealed, dated pouches and labelled cartons.', 'كيف تُصنع لاصقات رايت برو في مصنعنا بتلا في المنوفية: من بكرات القماش غير المنسوج إلى أكياس مغلقة مؤرخة وكراتين عليها بياناتها.') }}{% endblock %}
+{% block desc %}{{ t('Right Pro adhesive dressings are made in our factory in Tala, Menoufia. Every pouch is printed with its production and expiry dates.', 'تُصنع لاصقات رايت برو في مصنعنا بتلا في محافظة المنوفية، وعلى كل كيس تاريخ الإنتاج وتاريخ الانتهاء.') }}{% endblock %}
 {% block content %}
 
 {{ phead('photo', t('Manufacturing', 'التصنيع'),
   t('Right Pro dressings are made in our factory in Tala, Menoufia.', 'تُصنع لاصقات رايت برو في مصنعنا بمدينة تلا في محافظة المنوفية.'),
   photo='img/photo/machine-soft.webp', pos='70% 50%') }}
-
-<section class="sec" aria-labelledby="steps-title">
-  <div class="wrap">
-    <div class="sec-head">
-      <h2 id="steps-title">{{ t('From reel to carton', 'من البكرة إلى الكرتونة') }}</h2>
-      <p>{{ t('The same five steps for every size, from 6 × 8 to 10 × 35 cm.', 'خمس خطوات ثابتة لكل المقاسات، من 6 × 8 حتى 10 × 35 سم.') }}</p>
-    </div>
-    <ol class="flow">
-      <li>
-        <h3>{{ t('Materials on reels', 'الخامات على البكرات') }}</h3>
-        <p>{{ t('Non-woven fabric with its adhesive layer, the pad material and the release paper are loaded on reels.', 'يُحمَّل القماش غير المنسوج بطبقته اللاصقة، وخامة الوسادة، وورق الحماية على البكرات.') }}</p>
-      </li>
-      <li>
-        <h3>{{ t('Pad placed', 'تثبيت الوسادة') }}</h3>
-        <p>{{ t('The absorbent pad is cut and laid on the adhesive side, leaving an adhesive border all round.', 'تُقص الوسادة الماصّة وتوضع على الوجه اللاصق، مع ترك حافة لاصقة من كل الجهات.') }}</p>
-      </li>
-      <li>
-        <h3>{{ t('Cut to size', 'القص بالمقاس') }}</h3>
-        <p>{{ t('Each dressing is cut to its final size.', 'يُقص كل لاصق بمقاسه النهائي.') }}</p>
-      </li>
-      <li>
-        <h3>{{ t('Sealed and printed', 'الغلق والطباعة') }}</h3>
-        <p>{{ t('Every dressing is sealed in its own pouch, printed with its production and expiry dates.', 'يُغلق كل لاصق في كيس مستقل، مطبوع عليه تاريخ الإنتاج وتاريخ الانتهاء.') }}</p>
-      </li>
-      <li>
-        <h3>{{ t('Packed', 'التعبئة') }}</h3>
-        <p>{{ t('Pouches go into cartons of 20, or 75 for 6 × 8 cm, labelled in Arabic and English.', 'تُعبأ الأكياس في كراتين من 20 قطعة، أو 75 قطعة لمقاس 6 × 8 سم، وبياناتها بالعربية والإنجليزية.') }}</p>
-      </li>
-    </ol>
-  </div>
-</section>
 
 <section class="sec sec--mist" aria-labelledby="film-title">
   <div class="wrap split">

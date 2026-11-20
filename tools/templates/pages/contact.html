@@ -11,7 +11,7 @@
 <section class="sec">
   <div class="wrap contact-grid">
     <form class="form" data-quote-form novalidate
-          data-wa="{{ C.sales_wa }}" data-email="{{ C.sales_email }}" data-unit="{{ t('cm', 'سم') }}"
+          data-wa="{{ C.wa }}" data-email="{{ C.sales_email }}" data-unit="{{ t('cm', 'سم') }}"
           data-heading="{{ t('Quote request for First Medical', 'طلب عرض سعر من فيرست ميديكال') }}"
           data-err-name="{{ t('Please add your name.', 'من فضلك اكتب اسمك.') }}"
           data-err-need="{{ t('Choose a product, or tell us in the notes what you need.', 'اختر منتجًا، أو اكتب في الملاحظات ما تحتاجه.') }}">
@@ -76,13 +76,16 @@
 
     <aside class="direct" aria-label="{{ t('Direct contacts', 'التواصل المباشر') }}">
       <div>
+        <h2>{{ t('WhatsApp', 'واتساب') }}</h2>
+        <a href="https://wa.me/{{ C.wa }}" target="_blank" rel="noopener"><span class="ltr">{{ C.wa_display }}</span></a>
+      </div>
+      <div>
         <h2>{{ t('Sales', 'المبيعات') }}</h2>
-        <a href="https://wa.me/{{ C.sales_wa }}" target="_blank" rel="noopener"><span class="ltr">{{ C.sales_phone }}</span></a>
+        <a href="tel:{{ C.sales_phone|replace(' ', '') }}"><span class="ltr">{{ C.sales_phone }}</span></a>
         <a href="mailto:{{ C.sales_email }}">{{ C.sales_email }}</a>
       </div>
       <div>
         <h2>{{ t('Export', 'التصدير') }}</h2>
-        <a href="https://wa.me/{{ C.export_wa }}" target="_blank" rel="noopener"><span class="ltr">{{ C.export_phone }}</span></a>
         <a href="mailto:{{ C.export_email }}">{{ C.export_email }}</a>
       </div>
       <div>

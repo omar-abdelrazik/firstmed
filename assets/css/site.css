@@ -261,8 +261,9 @@ button { font: inherit; }
 
 /* ---------------------------------------------------------------- Right Pro, sizes to scale */
 .rp { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(28px, 5vw, 72px); align-items: end; }
-.rp-chart { container-type: inline-size; display: flex; align-items: flex-end; gap: clamp(6px, 1.6vw, 22px); padding-block-start: 28px; min-width: 0; }
-.rp-chart > * { --cm: min(12px, calc((100cqw - 104px) / 46)); --lab: 32px; }
+/* Width budget: ruler + 46 cm of dressings + 5 gaps of 1.6 cm = ruler + 54 cm, so the chart always fits its box. */
+.rp-chart { container-type: inline-size; display: flex; align-items: flex-end; padding-block-start: 28px; min-width: 0; }
+.rp-chart > * { --cm: min(12px, calc((100cqw - 48px) / 54)); --lab: 32px; }
 @container (max-width: 560px) {
   .dressing-label { font-size: .7rem; }
   .ruler { font-size: .62rem; width: 26px; }
@@ -277,7 +278,7 @@ button { font: inherit; }
 .ruler-scale::after { width: 12px; background: repeating-linear-gradient(to top, rgba(255, 255, 255, .85) 0 1.5px, transparent 1.5px calc(5 * var(--cm))); border-inline-end: 1px solid rgba(255, 255, 255, .5); }
 .ruler-scale i { position: absolute; inset-inline-start: 0; bottom: calc(var(--n) * var(--cm) - .4em); font-style: normal; }
 .ruler-unit { position: absolute; inset-inline-start: 0; top: 0; }
-.dressing { flex: none; width: calc(var(--w) * var(--cm)); display: grid; justify-items: center; gap: 10px; padding: 0; border: 0; background: none; color: inherit; cursor: pointer; }
+.dressing { flex: none; margin-inline-start: calc(1.6 * var(--cm)); width: calc(var(--w) * var(--cm)); display: grid; justify-items: center; gap: 10px; padding: 0; border: 0; background: none; color: inherit; cursor: pointer; }
 .dressing svg { display: block; width: 100%; height: auto; overflow: visible; filter: drop-shadow(0 10px 12px rgba(0, 20, 12, .32)); transition: transform .25s ease; }
 .dressing .d-edge { stroke: transparent; stroke-width: 4; transition: stroke .2s ease; }
 .dressing:hover svg { transform: translateY(-4px); }

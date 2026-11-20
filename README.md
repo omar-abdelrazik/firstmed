@@ -30,7 +30,7 @@ Commit the generated pages together with the template change.
 ## Publish
 
 The live site is deployed from `main` (Vercel). Pushing to `main` updates it.
-Canonical links, hreflang and the sitemap use `SITE_URL` in `tools/site_data.py` (currently `https://www.1st-medical.com`). Change it if the site lives elsewhere, then rebuild.
+Canonical links, hreflang, the sitemap and the link-preview image (the logo shown in WhatsApp and LinkedIn) use `SITE_URL` in `tools/site_data.py`, currently `https://firstmed.vercel.app`. Change it to the custom domain only once that domain serves the site, then rebuild.
 
 ## Content rules (they apply to every edit)
 

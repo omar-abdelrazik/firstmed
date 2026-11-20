@@ -75,6 +75,7 @@ def org_jsonld():
         "alternateName": ["1st MED", "فيرست ميديكال"],
         "url": D.SITE_URL + "/",
         "logo": D.SITE_URL + "/assets/img/brand/logo.png",
+        "foundingDate": "2022",
         "slogan": "Making quality accessible.",
         "address": {"@type": "PostalAddress", "addressLocality": "Tala", "addressRegion": "Menoufia", "addressCountry": "EG"},
         "contactPoint": [{"@type": "ContactPoint", "contactType": "sales", "telephone": D.CONTACT["sales_phone"].replace(" ", "-"),

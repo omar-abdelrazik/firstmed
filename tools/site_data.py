@@ -4,14 +4,15 @@ Each language is written for its own reader. Never put the other language's
 word next to a title on a page.
 """
 
-SITE_URL = "https://www.1st-medical.com"
+# The address the site is served from. Link previews (WhatsApp, LinkedIn) load the logo from here,
+# so switch it to https://www.1st-medical.com only once that domain points at the site.
+SITE_URL = "https://firstmed.vercel.app"
 
 CONTACT = {
     "sales_phone": "+20 128 366 3238",
-    "sales_wa": "201283663238",
+    "wa": "201006427397",               # every WhatsApp button goes here
+    "wa_display": "+20 100 642 7397",
     "sales_email": "sales@1st-medical.com",
-    "export_phone": "+20 100 642 7397",
-    "export_wa": "201006427397",
     "export_email": "export@1st-medical.com",
     "maps": "https://www.google.com/maps/search/?api=1&query=Tala%2C%20Menoufia%2C%20Egypt",
 }
