@@ -299,13 +299,17 @@ button { font: inherit; }
 .ruler-scale::after { width: 12px; background: repeating-linear-gradient(to top, rgba(255, 255, 255, .85) 0 1.5px, transparent 1.5px calc(5 * var(--cm))); border-inline-end: 1px solid rgba(255, 255, 255, .5); }
 .ruler-scale i { position: absolute; inset-inline-start: 0; bottom: calc(var(--n) * var(--cm) - .4em); font-style: normal; }
 .ruler-unit { position: absolute; inset-inline-start: 0; top: 0; }
-.dressing { position: relative; flex: none; margin-inline-start: calc(1.6 * var(--cm)); width: calc(var(--w) * var(--cm)); display: grid; justify-items: center; gap: 10px; padding: 0; border: 0; background: none; color: inherit; cursor: pointer; }
+.dressing { position: relative; flex: none; margin-inline-start: calc(1.6 * var(--cm)); width: calc(var(--w) * var(--cm)); display: grid; grid-template-columns: minmax(0, 1fr); justify-items: center; gap: 10px; padding: 0; border: 0; background: none; color: inherit; cursor: pointer; }
 .dressing::after { content: ""; position: absolute; inset: -6px calc(-.8 * var(--cm)); }
 .dressing svg { display: block; width: 100%; height: auto; overflow: visible; filter: drop-shadow(0 10px 12px rgba(0, 20, 12, .32)); transition: transform .25s ease; }
 .dressing .d-edge { stroke: transparent; stroke-width: 4; transition: stroke .2s ease; }
 .dressing:hover svg { transform: translateY(-4px); }
 .dressing[aria-pressed="true"] svg { transform: translateY(-10px); }
 .dressing[aria-pressed="true"] .d-edge { stroke: var(--orange); }
+/* dressing pads: real photos, flattened to a top-down view at each size's proportions */
+.dressing > img { display: block; width: 100%; height: auto; border-radius: 5px; filter: drop-shadow(0 10px 12px rgba(0, 20, 12, .32)); transition: transform .25s ease; }
+.dressing:hover > img { transform: translateY(-4px); }
+.dressing[aria-pressed="true"] > img { transform: translateY(-10px); outline: 3px solid var(--orange); outline-offset: 2px; }
 /* labels scale with the drawing so "10 × 12" never runs into its neighbour */
 .dressing-label { height: 22px; display: flex; align-items: center; font: 600 min(.95rem, calc(var(--cm) * 3.3))/1 var(--font-text); font-variant-numeric: tabular-nums; white-space: nowrap; opacity: .8; border-block-end: 2px solid transparent; }
 .dressing[aria-pressed="true"] .dressing-label { opacity: 1; border-block-end-color: var(--orange); }
