@@ -87,7 +87,7 @@ def build():
     env = Environment(loader=FileSystemLoader(str(TEMPLATES)), autoescape=False,
                       trim_blocks=True, lstrip_blocks=True)
     env.globals.update(t=t, tt=tt, dims=dims, C=D.CONTACT, SERVICES=D.SERVICES, PRODUCTS=D.PRODUCTS,
-                       CATEGORIES=D.CATEGORIES, SIZES=D.RIGHT_PRO_SIZES, SITE_URL=D.SITE_URL)
+                       CATEGORIES=D.CATEGORIES, SIZES=D.RIGHT_PRO_SIZES, PAD_SIZES=D.PAD_SIZES, SITE_URL=D.SITE_URL)
     ver = version()
     written = []
     for lang in ("en", "ar"):

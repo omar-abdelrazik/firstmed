@@ -66,11 +66,11 @@
   $$("[data-variants]").forEach(function (group) {
     var scope = group.closest("[data-product]") || d;
     var img = scope.querySelector("[data-variant-img]");
-    $$("[data-src]", group).forEach(function (chip) {
+    $$("[data-src], [data-key]", group).forEach(function (chip) {
       chip.addEventListener("click", function () {
-        $$("[data-src]", group).forEach(function (c) { c.setAttribute("aria-pressed", "false"); });
+        $$("[data-src], [data-key]", group).forEach(function (c) { c.setAttribute("aria-pressed", "false"); });
         chip.setAttribute("aria-pressed", "true");
-        if (img) {
+        if (img && chip.hasAttribute("data-src")) {
           img.src = chip.getAttribute("data-src");
           if (chip.dataset.w) { img.width = +chip.dataset.w; img.height = +chip.dataset.h; }
           if (chip.dataset.alt) img.alt = chip.dataset.alt;

@@ -92,6 +92,47 @@
 </div>
 {%- endmacro %}
 
+{#- Dressing pads, drawn to the same centimetre as the Right Pro chart. -#}
+{% macro padline(start='10x20') -%}
+{% set p = PRODUCTS | selectattr('id', 'equalto', 'pads') | first %}
+{% set cm = t('cm', 'سم') %}
+{% macro pack(n) %}{{ t(n ~ ' pieces per pack', n ~ (' قطع' if 3 <= n <= 10 else ' قطعة') ~ ' في العبوة') }}{% endmacro %}
+<div class="rp rp--catalog rp--flip" data-product="pads">
+  <div class="rp-stage">
+    <div class="rp-chart rp-chart--center" style="--rmax:25" role="group" aria-label="{{ t('Dressing pad sizes, drawn to scale', 'مقاسات غيار الدريسنج بنسبها الحقيقية') }}" data-variants>
+      <div class="ruler" aria-hidden="true">
+        <span class="ruler-unit">{{ cm }}</span>
+        <span class="ruler-scale">{% for n in [0, 5, 10, 15, 20, 25] %}<i style="--n:{{ n }}">{{ n }}</i>{% endfor %}</span>
+      </div>
+      {% for key, pcs in PAD_SIZES %}
+      {% set w = key.split('x')[0] | int %}{% set h = key.split('x')[1] | int %}
+      {% set size = w ~ ' × ' ~ h ~ ' ' ~ cm %}
+      <button type="button" class="dressing dressing--pad" style="--w:{{ w }};--h:{{ h }}" aria-pressed="{{ 'true' if key == start else 'false' }}" aria-label="{{ size }}{{ t(', ', '، ') }}{{ pack(pcs) }}"
+              data-key="{{ key }}" data-size="{{ size }}" data-pack="{{ pack(pcs) }}">
+        <svg viewBox="0 0 {{ w * 10 }} {{ h * 10 }}" aria-hidden="true" focusable="false">
+          <rect class="d-edge" width="{{ w * 10 }}" height="{{ h * 10 }}" rx="10" fill="url(#fm-pad)"/>
+          <rect width="{{ w * 10 }}" height="{{ h * 10 }}" rx="10" fill="url(#fm-nonwoven)" opacity=".55"/>
+          <rect x="7" y="7" width="{{ w * 10 - 14 }}" height="{{ h * 10 - 14 }}" rx="5" fill="none" stroke="#D5DED9" stroke-width="1.4" stroke-dasharray="3 2.5"/>
+        </svg>
+        <span class="dressing-label">{{ w }}&#8239;×&#8239;{{ h }}</span>
+      </button>
+      {% endfor %}
+    </div>
+  </div>
+  {% set first = PAD_SIZES | selectattr(0, 'equalto', start) | first %}
+  <div class="rp-info">
+    <h3 id="pads-title">{{ tt(p.name) }}</h3>
+    <p>{{ tt(p.desc) }}</p>
+    <p class="rp-size"><span data-bind="size">{{ start.split('x')[0] }} × {{ start.split('x')[1] }} {{ cm }}</span></p>
+    <p class="rp-pack" data-bind="pack">{{ pack(first[1]) }}</p>
+    <table class="spec"><tbody>{% for k, v in p.spec %}<tr><th scope="row">{{ tt(k) }}</th><td>{{ tt(v) }}</td></tr>{% endfor %}</tbody></table>
+    <div class="actions">
+      <a class="btn btn--primary" data-quote-link href="{{ link('contact.html') }}?product=pads&amp;size={{ start }}">{{ t('Request a quote for this size', 'اطلب عرض سعر لهذا المقاس') }}</a>
+    </div>
+  </div>
+</div>
+{%- endmacro %}
+
 {% macro prod_circle(p) -%}
 <a class="prod" href="{{ link('products.html') }}#{{ p.id }}">
   <span class="stage-circle">{{ img(p.img, '') }}</span>

@@ -88,6 +88,13 @@ RIGHT_PRO_SIZES = [
     ("10x35", "10 × 35 cm", 20, "img/products/right-pro-10x35.webp"),
 ]
 
+PAD_SIZES = [
+    # key (width x height in cm), pieces per pack
+    ("10x10", 25),
+    ("10x20", 15),
+    ("15x25", 10),
+]
+
 PRODUCTS = [
     {
         "id": "right-pro", "cat": "wound", "featured": True,
@@ -111,9 +118,9 @@ PRODUCTS = [
                  "غيار ماصّ ناعم غير لاصق للعناية بالجروح، يُثبَّت بالرباط أو البلاستر."),
         "img": "img/products/pad-square.webp",
         "spec": [
-            (("10 × 10 cm", "10 × 10 سم"), ("25 pieces per pack", "25 قطعة في العبوة")),
-            (("10 × 20 cm", "10 × 20 سم"), ("15 pieces per pack", "15 قطعة في العبوة")),
-            (("15 × 25 cm", "15 × 25 سم"), ("10 pieces per pack", "10 قطع في العبوة")),
+            (("Type", "النوع"), ("Non-adhesive absorbent dressing", "غيار ماصّ غير لاصق")),
+            (("Sizes", "المقاسات"), ("10 × 10, 10 × 20 and 15 × 25 cm", "10 × 10 و10 × 20 و15 × 25 سم")),
+            (("Made in", "بلد الصنع"), ("Tala, Menoufia, Egypt", "تلا، المنوفية، مصر")),
         ],
     },
     {

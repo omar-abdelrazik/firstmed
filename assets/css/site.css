@@ -289,8 +289,11 @@ button { font: inherit; }
 /* Width budget: ruler + 46 cm of dressings + 5 gaps of 1.6 cm = ruler + 54 cm, so the chart always fits its box. */
 .rp-chart { container-type: inline-size; display: flex; align-items: flex-end; padding-block-start: 28px; min-width: 0; }
 .rp-chart > * { --cm: min(12px, calc((100cqw - 48px) / 54)); --lab: 32px; }
-.ruler { flex: none; position: relative; width: 34px; height: calc(35 * var(--cm) + var(--lab) + 26px); color: rgba(255, 255, 255, .72); font: 500 .75rem/1 var(--font-text); font-variant-numeric: tabular-nums; }
-.ruler-scale { position: absolute; inset-inline: 0; bottom: var(--lab); height: calc(35 * var(--cm)); }
+.rp-chart--center { justify-content: center; }
+.rp--flip { grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); }
+.rp--flip .rp-stage { order: 2; }
+.ruler { flex: none; position: relative; width: 34px; height: calc(var(--rmax, 35) * var(--cm) + var(--lab) + 26px); color: rgba(255, 255, 255, .72); font: 500 .75rem/1 var(--font-text); font-variant-numeric: tabular-nums; }
+.ruler-scale { position: absolute; inset-inline: 0; bottom: var(--lab); height: calc(var(--rmax, 35) * var(--cm)); }
 .ruler-scale::before, .ruler-scale::after { content: ""; position: absolute; inset-inline-end: 0; bottom: 0; height: 100%; }
 .ruler-scale::before { width: 6px; background: repeating-linear-gradient(to top, rgba(255, 255, 255, .5) 0 1px, transparent 1px var(--cm)); }
 .ruler-scale::after { width: 12px; background: repeating-linear-gradient(to top, rgba(255, 255, 255, .85) 0 1.5px, transparent 1.5px calc(5 * var(--cm))); border-inline-end: 1px solid rgba(255, 255, 255, .5); }
@@ -324,6 +327,8 @@ button { font: inherit; }
 }
 @media (max-width: 960px) {
   .rp { grid-template-columns: 1fr; }
+  .rp--flip { grid-template-columns: 1fr; }
+  .rp--flip .rp-stage { order: 0; }
   .rp-carton { aspect-ratio: 16 / 9; max-height: 260px; }
 }
 
@@ -459,7 +464,7 @@ button { font: inherit; }
 .cat-head { display: grid; gap: 8px; margin-block-end: 32px; }
 .cat-head h2 { font-size: clamp(1.9rem, 3.2vw, 2.6rem); }
 .cat-head p { color: var(--ink-2); }
-.cat-more { display: grid; gap: 24px; margin-block-start: 24px; }
+.cat-more { display: block; margin-block-start: clamp(56px, 7vw, 96px); }
 .item { display: grid; grid-template-columns: minmax(0, 1fr); gap: 16px; align-content: start; padding: clamp(24px, 3vw, 36px); border-radius: var(--r-lg); background: var(--mist); }
 .item .stage-circle { max-width: 280px; margin-inline: auto; background: var(--paper); }
 .item h3 { font-size: 1.5rem; }
