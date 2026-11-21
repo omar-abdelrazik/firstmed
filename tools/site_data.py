@@ -103,12 +103,17 @@ PRODUCTS = [
         "desc": ("Non-woven fabric adhesive wound dressing with an absorbent pad that does not stick to the wound.",
                  "غيار لاصق من القماش غير المنسوج، بوسادة ماصّة لا تلتصق بالجرح."),
         "img": "img/products/right-pro-10x18.webp",
-        "spec": [
-            (("Material", "الخامة"), ("Non-woven fabric with adhesive; absorbent, non-stick pad", "قماش غير منسوج لاصق، ووسادة ماصّة لا تلتصق بالجرح")),
-            (("Labelling", "البيانات"), ("Arabic and English", "بالعربية والإنجليزية")),
-            (("On every pouch", "على كل عبوة"), ("Production and expiry dates", "تاريخ الإنتاج وتاريخ الانتهاء")),
-            (("Made in", "بلد الصنع"), ("Tala, Menoufia, Egypt", "تلا، المنوفية، مصر")),
+        "uses": [
+            ("Covering wounds after surgery", "تغطية الجروح بعد العمليات الجراحية"),
+            ("Cuts and minor wounds in clinics and emergency rooms", "القطوع والجروح البسيطة في العيادات والطوارئ"),
+            ("Long incisions, with the 10 × 25 and 10 × 35 cm sizes", "الشقوق الطويلة، بمقاسَي 10 × 25 و10 × 35 سم"),
         ],
+        "benefits": [
+            ("The absorbent pad does not stick to the wound", "الوسادة الماصّة لا تلتصق بالجرح"),
+            ("The adhesive non-woven fabric holds it in place, no bandage needed", "القماش غير المنسوج اللاصق يثبّت الغيار من غير رباط"),
+            ("Production and expiry dates on every pack, labels in Arabic and English", "تاريخ الإنتاج والانتهاء على كل عبوة، والبيانات بالعربية والإنجليزية"),
+        ],
+        "spec": [],
     },
     {
         "id": "pads", "cat": "wound",
@@ -117,11 +122,17 @@ PRODUCTS = [
         "desc": ("Soft, non-adhesive absorbent dressing for wound care, held in place with a bandage or tape.",
                  "غيار ماصّ ناعم غير لاصق للعناية بالجروح، يُثبَّت بالرباط أو البلاستر."),
         "img": "img/products/pad-square.webp",
-        "spec": [
-            (("Type", "النوع"), ("Non-adhesive absorbent dressing", "غيار ماصّ غير لاصق")),
-            (("Sizes", "المقاسات"), ("10 × 10, 10 × 20 and 15 × 25 cm", "10 × 10 و10 × 20 و15 × 25 سم")),
-            (("Made in", "بلد الصنع"), ("Tala, Menoufia, Egypt", "تلا، المنوفية، مصر")),
+        "uses": [
+            ("Open wounds and cuts, after cleaning", "الجروح المفتوحة والقطوع بعد تنظيفها"),
+            ("Wounds with discharge that need an absorbent layer", "الجروح التي فيها إفرازات وتحتاج طبقة ماصّة"),
+            ("Dressing changes in wards, emergency rooms and clinics", "تغيير الغيار في الأقسام والطوارئ والعيادات"),
         ],
+        "benefits": [
+            ("Soft absorbent filling", "حشوة ماصّة ناعمة"),
+            ("Sealed edges on all four sides", "حوافّ مقفولة من الأربع جهات"),
+            ("No adhesive, so you fix it with a bandage or tape, as the wound needs", "من غير لاصق، فتثبّته بالرباط أو البلاستر حسب مكان الجرح"),
+        ],
+        "spec": [],
     },
     {
         "id": "eye-pad", "cat": "eye",
@@ -130,8 +141,17 @@ PRODUCTS = [
         "desc": ("Oval adhesive eye patch with a soft absorbent centre, part of the Right Pro range.",
                  "غيار عين بيضاوي لاصق بوسادة ماصّة ناعمة في المنتصف، ضمن منتجات رايت برو."),
         "img": "img/products/eye-pad-oval.webp",
+        "uses": [
+            ("Covering the eye after eye surgery", "تغطية العين بعد عمليات العيون"),
+            ("Protecting an injured eye", "حماية العين المصابة"),
+            ("Covering the eye during treatment, as the doctor advises", "تغطية العين أثناء العلاج حسب توجيه الطبيب"),
+        ],
+        "benefits": [
+            ("Oval, to cover the area around the eye", "شكل بيضاوي يغطي محيط العين"),
+            ("Soft absorbent pad in the centre", "وسادة ماصّة ناعمة في المنتصف"),
+            ("Adhesive edge holds it without tape", "حافة لاصقة تثبّته من غير بلاستر"),
+        ],
         "spec": [
-            (("Shape", "الشكل"), ("Oval", "بيضاوي")),
             (("Size", "المقاس"), ("Adult", "للكبار")),
             (("Pieces per box", "عدد القطع في العلبة"), ("40", "40 قطعة")),
             (("Boxes per carton", "عدد العلب في الكرتونة"), ("45 boxes, 1,800 pieces in total", "45 علبة، بإجمالي 1800 قطعة")),
@@ -145,6 +165,16 @@ PRODUCTS = [
         "desc": ("Non-woven fabric on rolls for medical use.",
                  "قماش نون ووفن على أتواب للاستخدام الطبي."),
         "img": "img/products/nonwoven-roll.webp",
+        "uses": [
+            ("Covering examination couches and treatment beds", "فرش أسرّة الكشف وأسرّة العلاج"),
+            ("Making single-use sheets and covers", "تصنيع الملايات والأغطية التي تُستخدم مرة واحدة"),
+            ("Clinics, physiotherapy and beauty centres", "العيادات ومراكز العلاج الطبيعي والتجميل"),
+        ],
+        "benefits": [
+            ("90 cm wide, enough to cover an examination couch", "عرض 90 سم يكفي لفرش سرير الكشف"),
+            ("Cut to the length you need from the roll", "تقصّ منه الطول اللي تحتاجه"),
+            ("Single use, nothing to wash", "يُستخدم مرة واحدة، فلا يحتاج غسيلًا"),
+        ],
         "spec": [
             (("Width", "العرض"), ("90 cm", "90 سم")),
             (("Length per roll", "طول التوب"), ("30 m", "30 مترًا")),

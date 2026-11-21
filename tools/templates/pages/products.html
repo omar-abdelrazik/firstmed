@@ -1,5 +1,5 @@
 {% extends 'base.html' %}
-{% from 'partials/macros.html' import icon, phead, lineup, padline, circle with context %}
+{% from 'partials/macros.html' import icon, phead, lineup, padline, circle, facts, spec_table with context %}
 {% block title %}{{ t('Products | First Medical', 'المنتجات | فيرست ميديكال') }}{% endblock %}
 {% block desc %}{{ t('Right Pro adhesive dressings in five sizes from 6 × 8 to 10 × 35 cm, adhesive eye patches, dressing pads in three sizes and 90 cm non-woven fabric rolls, made in Egypt.', 'الغيار الطبي اللاصق رايت برو بخمسة مقاسات من 6 × 8 حتى 10 × 35 سم، وغيار العين اللاصق، وغيار الدريسنج بثلاثة مقاسات، وأتواب النون ووفن بعرض 90 سم، صُنعت في مصر.') }}{% endblock %}
 {% block content %}
@@ -51,7 +51,7 @@
       <div class="item-body">
         <h3 id="{{ p.id }}-name">{{ tt(p.name) }}</h3>
         <p>{{ tt(p.desc) }}</p>
-        <table class="spec"><tbody>{% for k, v in p.spec %}<tr><th scope="row">{{ tt(k) }}</th><td>{{ tt(v) }}</td></tr>{% endfor %}</tbody></table>
+        {{ facts(p) }}{{ spec_table(p.spec) }}
         <a class="btn btn--line" href="{{ link('contact.html') }}?product={{ p.id }}">{{ t('Request a quote', 'اطلب عرض سعر') }}</a>
       </div>
     </article>

@@ -82,7 +82,7 @@
     <p class="rp-size"><span data-bind="size">{{ first[1]|replace('cm', cm) }}</span></p>
     <p class="rp-pack" data-bind="pack">{{ t(first[2] ~ ' pieces per carton', first[2] ~ ' قطعة في الكرتونة') }}</p>
     {% if catalog %}
-    <table class="spec"><tbody>{% for k, v in rp.spec %}<tr><th scope="row">{{ tt(k) }}</th><td>{{ tt(v) }}</td></tr>{% endfor %}</tbody></table>
+    {{ facts(rp) }}{{ spec_table(rp.spec) }}
     {% endif %}
     <div class="actions">
       <a class="btn btn--primary" data-quote-link href="{{ link('contact.html') }}?product=right-pro&amp;size={{ start }}">{{ t('Request a quote for this size', 'اطلب عرض سعر لهذا المقاس') }}</a>
@@ -121,12 +121,30 @@
     <p>{{ tt(p.desc) }}</p>
     <p class="rp-size"><span data-bind="size">{{ start.split('x')[0] }} × {{ start.split('x')[1] }} {{ cm }}</span></p>
     <p class="rp-pack" data-bind="pack">{{ pack(first[1]) }}</p>
-    <table class="spec"><tbody>{% for k, v in p.spec %}<tr><th scope="row">{{ tt(k) }}</th><td>{{ tt(v) }}</td></tr>{% endfor %}</tbody></table>
+    {{ facts(p) }}{{ spec_table(p.spec) }}
     <div class="actions">
       <a class="btn btn--primary" data-quote-link href="{{ link('contact.html') }}?product=pads&amp;size={{ start }}">{{ t('Request a quote for this size', 'اطلب عرض سعر لهذا المقاس') }}</a>
     </div>
   </div>
 </div>
+{%- endmacro %}
+
+{#- What the product is for, and what it does well. Plain statements only. -#}
+{% macro facts(p) -%}
+{% if p.uses or p.benefits %}
+<div class="facts">
+  {% for key, head in [('uses', t('Applications', 'الاستخدامات')), ('benefits', t('Key benefits', 'المزايا الرئيسية'))] if p[key] %}
+  <div>
+    <h4>{{ head }}</h4>
+    <ul class="checklist checklist--sm">{% for item in p[key] %}<li>{{ icon('check') }}<span>{{ tt(item) }}</span></li>{% endfor %}</ul>
+  </div>
+  {% endfor %}
+</div>
+{% endif %}
+{%- endmacro %}
+
+{% macro spec_table(rows) -%}
+{% if rows %}<table class="spec"><tbody>{% for k, v in rows %}<tr><th scope="row">{{ tt(k) }}</th><td>{{ tt(v) }}</td></tr>{% endfor %}</tbody></table>{% endif %}
 {%- endmacro %}
 
 {% macro prod_circle(p) -%}

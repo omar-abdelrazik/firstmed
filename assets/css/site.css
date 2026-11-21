@@ -457,6 +457,11 @@ button { font: inherit; }
 .checklist { list-style: none; padding: 0; display: grid; gap: 14px; }
 .checklist li { display: grid; grid-template-columns: 30px minmax(0, 1fr); gap: 12px; align-items: start; font-size: 1.0625rem; }
 .checklist svg { width: 22px; height: 22px; margin-block-start: 3px; color: var(--emerald); }
+.facts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 240px), 1fr)); gap: 18px 32px; width: 100%; }
+.facts h4 { margin-block-end: 10px; font: 600 1rem/1.4 var(--font-display); color: var(--link); }
+.checklist--sm { gap: 8px; }
+.checklist--sm li { grid-template-columns: 22px minmax(0, 1fr); gap: 10px; font-size: 1rem; }
+.checklist--sm svg { width: 18px; height: 18px; margin-block-start: 4px; }
 
 /* ---------------------------------------------------------------- products page */
 .subnav { position: sticky; top: var(--header-h); z-index: 30; background: var(--paper); border-block-end: 1px solid var(--line); }
